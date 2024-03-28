@@ -24295,7 +24295,15 @@
   var import_react = __toESM(require_react(), 1);
   var import_prop_types = __toESM(require_prop_types(), 1);
   function Header({ title, subtitle }) {
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "border-y-2", style: { width: "100%" } }, /* @__PURE__ */ import_react.default.createElement("h1", null, title), subtitle));
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react.default.createElement(
+      "div",
+      {
+        className: "border-y-2 font-mono text-center py-2",
+        style: { width: "100%" }
+      },
+      /* @__PURE__ */ import_react.default.createElement("p", { className: "text-2xl" }, title),
+      /* @__PURE__ */ import_react.default.createElement("p", { className: "text-sm italic" }, subtitle)
+    ));
   }
   Header.propTypes = {
     title: import_prop_types.default.string.isRequired,
@@ -24304,10 +24312,10 @@
 
   // client/App.jsx
   function App() {
-    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "container" }, /* @__PURE__ */ import_react2.default.createElement(
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "container mx-auto px-4" }, /* @__PURE__ */ import_react2.default.createElement(
       Header,
       {
-        title: "No Man's Sky Planets",
+        title: "No Man's Sky Planet Browser",
         subtitle: "Click a planet for more information"
       }
     ));
