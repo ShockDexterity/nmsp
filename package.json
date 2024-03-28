@@ -11,8 +11,9 @@
     "client": "esbuild client/index.jsx --target=es6 --bundle --minify --outdir=public",
     "client:dev": "esbuild client/index.jsx --target=es6 --watch --bundle --sourcemap --outdir=public",
     "client:server": "esbuild client/index.jsx --target=es6 --bundle --watch --sourcemap --outdir=public --servedir=public",
+    "tw": "tailwindcss -i ./client/input.css -o ./public/tailwind.css",
     "tw:dev": "tailwindcss -i ./client/input.css -o ./public/tailwind.css --watch",
-    "tw": "tailwindcss -o tailwind.css --minify"
+    "tw:minify": "tailwindcss -o tailwind.css --minify"
   },
   "author": "Will Canter",
   "license": "MIT",

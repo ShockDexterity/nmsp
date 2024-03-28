@@ -23476,6 +23476,37 @@
     }
   });
 
+  // node_modules/react-dom/client.js
+  var require_client = __commonJS({
+    "node_modules/react-dom/client.js"(exports) {
+      "use strict";
+      var m = require_react_dom();
+      if (false) {
+        exports.createRoot = m.createRoot;
+        exports.hydrateRoot = m.hydrateRoot;
+      } else {
+        i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        exports.createRoot = function(c, o) {
+          i.usingClientEntryPoint = true;
+          try {
+            return m.createRoot(c, o);
+          } finally {
+            i.usingClientEntryPoint = false;
+          }
+        };
+        exports.hydrateRoot = function(c, h, o) {
+          i.usingClientEntryPoint = true;
+          try {
+            return m.hydrateRoot(c, h, o);
+          } finally {
+            i.usingClientEntryPoint = false;
+          }
+        };
+      }
+      var i;
+    }
+  });
+
   // node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js
   var require_react_is_development = __commonJS({
     "node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js"(exports) {
@@ -24255,7 +24286,7 @@
 
   // client/index.jsx
   var import_react3 = __toESM(require_react(), 1);
-  var import_react_dom = __toESM(require_react_dom(), 1);
+  var import_client = __toESM(require_client(), 1);
 
   // client/App.jsx
   var import_react2 = __toESM(require_react(), 1);
@@ -24264,7 +24295,7 @@
   var import_react = __toESM(require_react(), 1);
   var import_prop_types = __toESM(require_prop_types(), 1);
   function Header({ title, subtitle }) {
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "pb-2 mt-4 mb-2 border-bottom", style: { width: "100%" } }, /* @__PURE__ */ import_react.default.createElement("h1", null, title), subtitle));
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: "row" }, /* @__PURE__ */ import_react.default.createElement("div", { className: "border-y-2", style: { width: "100%" } }, /* @__PURE__ */ import_react.default.createElement("h1", null, title), subtitle));
   }
   Header.propTypes = {
     title: import_prop_types.default.string.isRequired,
@@ -24284,7 +24315,7 @@
 
   // client/index.jsx
   document.addEventListener("DOMContentLoaded", () => {
-    const root = (0, import_react_dom.createRoot)(document.querySelector("#root"));
+    const root = (0, import_client.createRoot)(document.querySelector("#root"));
     root.render(
       /* @__PURE__ */ import_react3.default.createElement(import_react3.StrictMode, null, /* @__PURE__ */ import_react3.default.createElement(App, null))
     );

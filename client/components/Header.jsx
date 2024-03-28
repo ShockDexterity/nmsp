@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default function Header ({ title, subtitle }) {
   return (
     <div className="row">
-      <div className="pb-2 mt-4 mb-2 border-bottom" style={{ width: '100%' }}>
+      <div className="border-y-2" style={{ width: '100%' }}>
         <h1>{title}</h1>
         {subtitle}
       </div>
