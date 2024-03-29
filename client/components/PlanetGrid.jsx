@@ -42,3 +42,46 @@ export default function PlanetGrid () {
     </div>
   )
 }
+/*
+const card = document.createElement('div')
+card.className = 'card'
+
+const planetName = document.createElement('span')
+planetName.className = 'planetInfo planetName'
+planetName.textContent = planet.name
+card.appendChild(planetName)
+
+const planetBiome = document.createElement('div')
+planetBiome.className = 'planetInfo'
+if (planet.exotic) {
+  planetBiome.className += ' exotic'
+}
+if (planet.extreme) {
+  planetBiome.className += ' extreme'
+}
+if (planet.infested) {
+  planetBiome.className += ' infested'
+}
+planetBiome.textContent = `${planet.biome} Planet`
+card.appendChild(planetBiome)
+
+const sentinelLevel = document.createElement('div')
+sentinelLevel.className = 'planetInfo'
+if (planet.sentinels === 'Aggressive') {
+  sentinelLevel.className += ' aggressive'
+  console.log(sentinelLevel.classList)
+}
+else if (planet.sentinels === 'Corrupt') {
+  sentinelLevel.className += ' corrupt'
+}
+sentinelLevel.textContent = `${planet.sentinels} Sentinels`
+card.appendChild(sentinelLevel)
+
+const planetSystem = document.createElement('div')
+planetSystem.className = 'planetInfo'
+planetSystem.textContent = `${planet.system} System`
+card.appendChild(planetSystem)
+
+cardContainer.appendChild(card)
+planetRow.appendChild(cardContainer)
+*/

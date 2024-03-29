@@ -25,3 +25,58 @@
   font-family: 'Oxygen-Bold', sans-serif;
   font-style: normal;
 }
+
+/*
+.card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px lightgray;
+
+  height: 7.5em;
+  align-content: center;
+
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 2px 2px 2px gray;
+}
+
+.planetInfo {
+  display: block;
+  font-size: medium;
+  text-align: center;
+}
+
+.planetName {
+  font-weight: bold;
+}
+
+.exotic {
+  background-color: lightgray;
+}
+
+.extreme,
+.aggressive {
+  background-color: lightcoral;
+  color: darkred;
+}
+
+.infested {
+  background-color: lightgreen;
+  color: darkgreen;
+}
+
+.extreme.infested {
+  background-image: linear-gradient(to right, lightcoral 50%, lightgreen 50%);
+  color: darkred;
+}
+
+.corrupt {
+  color: darkblue;
+  background-color: lightblue;
+}
+
+*/
