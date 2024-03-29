@@ -5,7 +5,8 @@ export function planetsFromCSV (csv) {
   // Remove the first and list lines
   lines = lines.slice(1, -1)
 
-  for (let i = 1; i < lines.length; i++) {
+  let i = 0
+  for (const line of lines) {
     const [
       system,
       systemID,
@@ -19,19 +20,20 @@ export function planetsFromCSV (csv) {
       sentinels,
       extreme,
       infested
-    ] = lines[i].split(',')
+    ] = line.split(',')
 
     const newPlanet = {
-      system,
-      systemID: parseInt(systemID),
       name,
+      id: i++,
       descriptor,
       biome,
       special,
       resources: [resource1, resource2, resource3],
       sentinels,
       extreme: extreme === 'TRUE',
-      infested: infested === 'TRUE'
+      infested: infested === 'TRUE',
+      system,
+      systemID: parseInt(systemID)
     }
     planets.push(newPlanet)
   }
