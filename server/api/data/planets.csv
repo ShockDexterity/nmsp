@@ -1,19 +1,40 @@
-System,ID,Planet,Descriptor,Biome,Special,Resource 1,Resource 2,Resource 3,Sentinels,Extreme,Infested
-Enkyer-Aron,1,Rorennsy VI,High Radio Source,Irradiated,Gamma Root,Copper,Uranium,Sodium,Low,FALSE,FALSE
-Enkyer-Aron,1,Rabab D31,Tectonic,Volcanic,---,Copper,Basalt,Magnetized Ferrite,Low,FALSE,FALSE
-Enkyer-Aron,1,Cuse,Hexagonal,Hexagon,---,Copper,Gold,Silver,Low,FALSE,FALSE
-Enkyer-Aron,1,Lasieth Minor,Acidic,Toxic,Fungal Mold,Copper,Ammonia,Silver,Low,FALSE,FALSE
-Enkyer-Aron,1,Eniwa 22/Q4,Scorched,Scorched,Solanium,Copper,Phosphorus,Sodium,Low,FALSE,FALSE
-Enkyer-Aron,1,Araxidi Beta,Paradise,Lush,Star Bulb,Copper,Paraffinium,Sodium,Low,FALSE,FALSE
-Dihingh-Noflut,2,Wottsabur,High Radio Source,Irradiated,Gamma Root,Copper,Uranium,Cobalt,Low,FALSE,FALSE
-Dihingh-Noflut,2,Altonib Prime,Tectonic,Volcanic,---,Copper,Pyrite,Sodium,Low,FALSE,FALSE
-Xifenno,3,Eblos A12,Caustic,Toxic,Fungal Mold,Copper,Ammonia,Cobalt,High,FALSE,FALSE
-Xifenno,3,Ewellin XII,Spined,Bone Spire,---,Copper,Gold,Magnetized Ferrite,High,FALSE,FALSE
-Xifenno,3,Ansasca Omega,Glacial,Frozen,Frost Crystal,Copper,Dioxite,Cobalt,Low,FALSE,FALSE
-Xifenno,3,Nokong Tau,Boggy,Marsh,---,Copper,Faecium,Cobalt,High,FALSE,FALSE
-Ushelk-Ihonj,4,Ohas 58/J1,Grassy,Lush,Star Bulb,Activated Copper,Paraffinium,Salt,Corrupt,TRUE,FALSE
-Ushelk-Ihonj,4,Auke,Tropical,Marsh,---,Copper,Paraffinium,Cobalt,Low,FALSE,FALSE
-Ushelk-Ihonj,4,Hawkini V,Mutated,Infested Irradiated,Gamma Root,Copper,Uranium,Cobalt,Low,FALSE,FALSE
-Ushelk-Ihonj,4,Tefra Y41,Bountiful,Lush,Star Bulb,Activated Copper,Paraffinium,Salt,Low,TRUE,FALSE
-Ushelk-Ihonj,4,Yarman XVI,Webbed,Contour,---,Copper,Gold,Cobalt,Low,FALSE,FALSE
-Ushelk-Ihonj,4,Ludg,Erupting,Volcanic,---,Activated Copper,Pyrite,Magnetized Ferrite,High,TRUE,FALSE
+System,ID,Planet,Descriptor,Biome,Special,Resource 1,Resource 2,Resource 3,Sent,Extr?,Infested?,Moon?
+Enkyer-Aron,1,Rorennsy VI,High Radio Source,Irradiated,Gamma Root,Copper,Uranium,Sodium,Low,FALSE,FALSE,FALSE
+Enkyer-Aron,1,Rabab D31,Tectonic,Volcanic,---,Copper,Basalt,Mag. Ferrite,Low,FALSE,FALSE,FALSE
+Enkyer-Aron,1,Cuse,Hexagonal,Hexagon (Exotic),---,Copper,Gold,Silver,Low,FALSE,FALSE,FALSE
+Enkyer-Aron,1,Lasieth Minor,Acidic,Toxic,Fungal Mold,Copper,Ammonia,Silver,Low,FALSE,FALSE,FALSE
+Enkyer-Aron,1,Eniwa 22/Q4,Scorched,Scorched,Solanium,Copper,Phosphorus,Sodium,Low,FALSE,FALSE,FALSE
+Enkyer-Aron,1,Araxidi Beta,Paradise,Lush,Star Bulb,Copper,Paraffinium,Sodium,Low,FALSE,FALSE,FALSE
+Dihingh-Noflut,2,Wottsabur,High Radio Source,Irradiated,Gamma Root,Copper,Uranium,Cobalt,Low,FALSE,FALSE,FALSE
+Dihingh-Noflut,2,Altonib Prime,Tectonic,Volcanic,---,Copper,Pyrite,Sodium,Low,FALSE,FALSE,FALSE
+Xifenno,3,Eblos A12,Caustic,Toxic,Fungal Mold,Copper,Ammonia,Cobalt,High,FALSE,FALSE,FALSE
+Xifenno,3,Ewellin XII,Spined,Bone Spire (Exotic),---,Copper,Gold,Mag. Ferrite,High,FALSE,FALSE,FALSE
+Xifenno,3,Ansasca Omega,Glacial,Frozen,Frost Crystal,Copper,Dioxite,Cobalt,Low,FALSE,FALSE,FALSE
+Xifenno,3,Nokong Tau,Boggy,Marsh,---,Copper,Faecium,Cobalt,High,FALSE,FALSE,FALSE
+Ushelk-Ihonj,4,Ohas 58/J1,Grassy,Lush,Star Bulb,Act. Copper,Paraffinium,Salt,Corrupt,TRUE,FALSE,FALSE
+Ushelk-Ihonj,4,Auke,Tropical,Marsh,---,Copper,Paraffinium,Cobalt,Low,FALSE,FALSE,FALSE
+Ushelk-Ihonj,4,Hawkini V,Mutated,Infested Irradiated,Gamma Root,Copper,Uranium,Cobalt,Low,FALSE,FALSE,FALSE
+Ushelk-Ihonj,4,Tefra Y41,Bountiful,Lush,Star Bulb,Act. Copper,Paraffinium,Salt,Low,TRUE,FALSE,FALSE
+Ushelk-Ihonj,4,Yarman XVI,Webbed,Contour (Exotic),---,Copper,Gold,Cobalt,Low,FALSE,FALSE,FALSE
+Ushelk-Ihonj,4,Ludg,Erupting,Volcanic,---,Act. Copper,Pyrite,Mag. Ferrite,High,TRUE,FALSE,FALSE
+Gixincu-Kaspi,5,Dolines Delta,Torrid,Scorched,Solanium,Copper,Phosphorus,Salt,Low,FALSE,FALSE,FALSE
+Gixincu-Kaspi,5,Ladonchom T1,Poisonous,Toxic,Fungal Mold,Copper,Ammonia,Salt,High,FALSE,FALSE,FALSE
+Gixincu-Kaspi,5,Oran 68/R9,Ashen,Volcanic,---,Copper,Pyrite,Sodium,Aggressive,FALSE,FALSE,FALSE
+Gixincu-Kaspi,5,Luwynudhil,Barren,Barren,Cactus Flesh,Copper,Pyrite,Salt,High,FALSE,FALSE,TRUE
+Udontx,6,Kavacha,Torrid,Scorched,Solanium,Copper,Phosphorus,Cobalt,High,FALSE,FALSE,FALSE
+Udontx,6,Mibo 80/G4,Abandoned,Barren,Cactus Flesh,Copper,Pyrite,Salt,Low,FALSE,FALSE,FALSE
+Udontx,6,Aviev XI,Temperate,Lush,Star Bulb,Copper,Paraffinium,Silver,Aggressive,FALSE,FALSE,FALSE
+Udontx,6,Kinam 63/K5,Desert,Barren,Cactus Flesh,Copper,Pyrite,Mag. Ferrite,High,FALSE,FALSE,FALSE
+Udontx,6,Euth,Grassy,Lush,Star Bulb,Copper,Paraffinium,Silver,High,FALSE,FALSE,TRUE
+Udontx,6,Ticlebech,Glacial,Frozen,Frost Crystal,Copper,Dioxite,Cobalt,Aggressive,FALSE,FALSE,TRUE
+Isholu,7,Halus M49,of Light,Beams (Exotic),---,Copper,Gold,Sodium,High,FALSE,FALSE,FALSE
+Isholu,7,Ninan 11/E4,Arid,Scorched,Solanium,Copper,Phosphorus,Silver,Low,FALSE,FALSE,FALSE
+Isholu,7,Joycenn IV,Dusty,Barren,Cactus Flesh,Copper,Pyrite,Salt,Aggressive,FALSE,FALSE,FALSE
+Isholu,7,Zopoli Sigma,Foggy,Marsh,---,Copper,Faecium,Cobalt,Low,FALSE,FALSE,FALSE
+Isholu,7,Erditan VII,Metallic,Fract Cube (Exotic),---,Copper,Gold,Mag. Ferrite,High,FALSE,FALSE,TRUE
+Enecard,8,Yitchi,Desolate,Barren,Cactus Flesh,Act. Copper,Pyrite,Mag. Ferrite,High,TRUE,FALSE,FALSE
+Enecard,8,Tetib VII,Bountiful,Lush,Star Bulb,Act. Copper,Paraffinium,Mag. Ferrite,High,TRUE,FALSE,FALSE
+Enecard,8,Aibat 23/D3,Radioactive,Irradiated,Gamma Root,Copper,Uranium,Silver,Low,FALSE,FALSE,FALSE
+Enecard,8,Eridge Myoko,Airless,Dead,---,Copper,Rusted Metal,Silver,High,FALSE,FALSE,FALSE
+Enecard,8,Ojoshuan,Glacial,Frozen,Frost Crystal,Copper,Dioxite,Mag. Ferrite,High,FALSE,FALSE,TRUE
+Enecard,8,Washami Omega,Charred,Scorched,Solanium,Act. Copper,Phosphorus,Sodium,High,TRUE,FALSE,TRUE

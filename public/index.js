@@ -24346,6 +24346,12 @@
       };
     }, [addedPlanet]);
     const divPlanets = planets.map((planet) => {
+      let descriptorText = `${planet.descriptor} ${planet.moon ? "Moon" : "Planet"}`;
+      if (planet.descriptor === "of Light") {
+        descriptorText = `${planet.moon ? "Moon" : "Planet"} ${planet.descriptor}`;
+      } else if (planet.descriptor === "Planetary Anomaly") {
+        descriptorText = planet.descriptor;
+      }
       return /* @__PURE__ */ import_react2.default.createElement(
         "div",
         {
@@ -24353,7 +24359,8 @@
           className: "bg-gray-200 p-4 oxygen-regular border-gray-500 border-2 rounded-lg"
         },
         /* @__PURE__ */ import_react2.default.createElement("h2", null, planet.name),
-        /* @__PURE__ */ import_react2.default.createElement("p", null, planet.descriptor, " Planet")
+        /* @__PURE__ */ import_react2.default.createElement("p", null, descriptorText),
+        /* @__PURE__ */ import_react2.default.createElement("p", null, planet.system, " System")
       );
     });
     return /* @__PURE__ */ import_react2.default.createElement("div", { className: "row py-2" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "grid grid-cols-4 gap-4 text-center" }, divPlanets));

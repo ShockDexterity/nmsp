@@ -24,6 +24,14 @@ export default function PlanetGrid () {
   }, [addedPlanet])
 
   const divPlanets = planets.map((planet) => {
+    let descriptorText = `${planet.descriptor} ${planet.moon ? 'Moon' : 'Planet'}`
+    if (planet.descriptor === 'of Light') {
+      descriptorText = `${planet.moon ? 'Moon' : 'Planet'} ${planet.descriptor}`
+    }
+    else if (planet.descriptor === 'Planetary Anomaly') {
+      descriptorText = planet.descriptor
+    }
+
     return (
       <div
         key={planet.id}
@@ -31,7 +39,8 @@ export default function PlanetGrid () {
         // onClick={() => setAddedPlanet(true)}
       >
         <h2>{planet.name}</h2>
-        <p>{planet.descriptor} Planet</p>
+        <p>{descriptorText}</p>
+        <p>{planet.system} System</p>
       </div>
     )
   })

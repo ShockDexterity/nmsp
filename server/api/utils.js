@@ -18,20 +18,29 @@ export function planetsFromCSV (csv) {
       resource2,
       resource3,
       sentinels,
-      extreme,
-      infested
+      isExtreme,
+      isInfested,
+      isMoon
     ] = line.split(',')
+
+    const isExotic = biome.search('Exotic') >= 0
 
     const newPlanet = {
       name,
       id: i++,
       descriptor,
-      biome,
+      moon: isMoon === 'TRUE',
+      biome: biome.replace(' (Exotic)', ''),
+      exotic: isExotic,
+      extreme: isExtreme === 'TRUE',
+      infested: isInfested === 'TRUE',
       special,
-      resources: [resource1, resource2, resource3],
+      resources: [
+        resource1.replace('Act.', 'Activated').replace('Mag.', 'Magnetized'),
+        resource2.replace('Act.', 'Activated').replace('Mag.', 'Magnetized'),
+        resource3.replace('Act.', 'Activated').replace('Mag.', 'Magnetized')
+      ],
       sentinels,
-      extreme: extreme === 'TRUE',
-      infested: infested === 'TRUE',
       system,
       systemID: parseInt(systemID)
     }

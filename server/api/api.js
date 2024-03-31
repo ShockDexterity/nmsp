@@ -13,6 +13,13 @@ const rawPlanets = fs.readFileSync('./server/api/data/planets.csv', {
 })
 const planets = planetsFromCSV(rawPlanets)
 
+planets.sort((a, b) => {
+  if (a.systemID !== b.systemID) {
+    return a.systemID - b.systemID
+  }
+  return a.name.localeCompare(b.name)
+})
+
 router.get('/', (req, res) => {
   res.status(200).json(planets)
 })
