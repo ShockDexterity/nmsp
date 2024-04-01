@@ -15,10 +15,21 @@ export default function PlanetCard ({
     system // string
   }
 }) {
-  const sentinelText = <p>Sentinel Level: {sentinels.toUpperCase()}</p>
+  const sentinelText = (
+    <p>
+      Sentinel Level:{' '}
+      <span
+        className={
+          sentinels === 'aggressive' ? ' oxygen-bold' : 'oxygen-regular'
+        }
+      >
+        {sentinels.toUpperCase()}
+      </span>
+    </p>
+  )
 
   return (
-    <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-gray-200 p-4">
+    <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4">
       <div className="border-y-2 border-t-0 border-black">{name}</div>
       <div className="pt-2">
         <p className={getBiomeBackground(exotic, extreme, infested)}>
