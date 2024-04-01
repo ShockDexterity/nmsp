@@ -2402,9 +2402,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React5 = require_react();
+          var React6 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -4009,7 +4009,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React5.Children.forEach(props.children, function(child) {
+                  React6.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12456,7 +12456,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React5.Component().refs;
+          var emptyRefsObject = new React6.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24305,11 +24305,11 @@
   });
 
   // client/index.jsx
-  var import_react4 = __toESM(require_react(), 1);
+  var import_react5 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // client/App.jsx
-  var import_react3 = __toESM(require_react(), 1);
+  var import_react4 = __toESM(require_react(), 1);
 
   // client/components/Header.jsx
   var import_react = __toESM(require_react(), 1);
@@ -24323,11 +24323,63 @@
   };
 
   // client/components/PlanetGrid.jsx
+  var import_react3 = __toESM(require_react(), 1);
+
+  // client/components/PlanetCard.jsx
   var import_react2 = __toESM(require_react(), 1);
+  var import_prop_types2 = __toESM(require_prop_types(), 1);
+  function PlanetCard({
+    planet: {
+      name,
+      // string
+      descriptor,
+      // string
+      biome,
+      // string
+      exotic,
+      // boolean
+      extreme,
+      // boolean
+      infested,
+      // boolean
+      special,
+      // string
+      resources,
+      // string[]
+      sentinels,
+      // string
+      system
+      // string
+    }
+  }) {
+    let biomeBG = "";
+    if (exotic) {
+      biomeBG = "bg-slate-400";
+    }
+    const sentinelBG = sentinels === "low" ? "bg-green-500" : sentinels === "high" ? "bg-yellow-500" : sentinels === "aggressive" ? "bg-red-500" : "bg-purple-400";
+    const sentinelText = /* @__PURE__ */ import_react2.default.createElement("p", null, "Sentinel Level: ", sentinels.toUpperCase());
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "bg-gray-200 p-4 oxygen-regular border-gray-500 border-2 rounded-lg" }, /* @__PURE__ */ import_react2.default.createElement("h2", null, name), /* @__PURE__ */ import_react2.default.createElement("p", { className: biomeBG }, descriptor, " (", biome, ")"), /* @__PURE__ */ import_react2.default.createElement("p", { className: sentinelBG }, sentinels !== "low" && sentinelText), /* @__PURE__ */ import_react2.default.createElement("p", null, system, " System"));
+  }
+  PlanetCard.propTypes = {
+    planet: import_prop_types2.default.shape({
+      name: import_prop_types2.default.string.isRequired,
+      descriptor: import_prop_types2.default.string.isRequired,
+      biome: import_prop_types2.default.string.isRequired,
+      exotic: import_prop_types2.default.bool.isRequired,
+      extreme: import_prop_types2.default.bool.isRequired,
+      infested: import_prop_types2.default.bool.isRequired,
+      special: import_prop_types2.default.string.isRequired,
+      resources: import_prop_types2.default.arrayOf(import_prop_types2.default.string).isRequired,
+      sentinels: import_prop_types2.default.string.isRequired,
+      system: import_prop_types2.default.string.isRequired
+    }).isRequired
+  };
+
+  // client/components/PlanetGrid.jsx
   function PlanetGrid() {
-    const [planets, setPlanets] = (0, import_react2.useState)([]);
-    const [addedPlanet, setAddedPlanet] = (0, import_react2.useState)(false);
-    (0, import_react2.useEffect)(() => {
+    const [planets, setPlanets] = (0, import_react3.useState)([]);
+    const [addedPlanet, setAddedPlanet] = (0, import_react3.useState)(false);
+    (0, import_react3.useEffect)(() => {
       function fetchPlanets() {
         return __async(this, null, function* () {
           try {
@@ -24346,42 +24398,27 @@
       };
     }, [addedPlanet]);
     const divPlanets = planets.map((planet) => {
-      let descriptorText = `${planet.descriptor} ${planet.moon ? "Moon" : "Planet"}`;
-      if (planet.descriptor === "of Light") {
-        descriptorText = `${planet.moon ? "Moon" : "Planet"} ${planet.descriptor}`;
-      } else if (planet.descriptor === "Planetary Anomaly") {
-        descriptorText = planet.descriptor;
-      }
-      return /* @__PURE__ */ import_react2.default.createElement(
-        "div",
-        {
-          key: planet.id,
-          className: "bg-gray-200 p-4 oxygen-regular border-gray-500 border-2 rounded-lg"
-        },
-        /* @__PURE__ */ import_react2.default.createElement("h2", null, planet.name),
-        /* @__PURE__ */ import_react2.default.createElement("p", null, descriptorText),
-        /* @__PURE__ */ import_react2.default.createElement("p", null, planet.system, " System")
-      );
+      return /* @__PURE__ */ import_react3.default.createElement(PlanetCard, { key: planet.id, planet });
     });
-    return /* @__PURE__ */ import_react2.default.createElement("div", { className: "row py-2" }, /* @__PURE__ */ import_react2.default.createElement("div", { className: "grid grid-cols-4 gap-4 text-center" }, divPlanets));
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "row py-2" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 text-center" }, divPlanets));
   }
 
   // client/App.jsx
   function App() {
-    return /* @__PURE__ */ import_react3.default.createElement("div", { className: "container mx-auto px-4" }, /* @__PURE__ */ import_react3.default.createElement(
+    return /* @__PURE__ */ import_react4.default.createElement("div", { className: "container mx-auto px-4" }, /* @__PURE__ */ import_react4.default.createElement(
       Header,
       {
         title: "No Man's Sky Planet Browser",
         subtitle: "Click on a planet card for more information"
       }
-    ), /* @__PURE__ */ import_react3.default.createElement(PlanetGrid, null));
+    ), /* @__PURE__ */ import_react4.default.createElement(PlanetGrid, null));
   }
 
   // client/index.jsx
   document.addEventListener("DOMContentLoaded", () => {
     const root = (0, import_client.createRoot)(document.querySelector("#root"));
     root.render(
-      /* @__PURE__ */ import_react4.default.createElement(import_react4.StrictMode, null, /* @__PURE__ */ import_react4.default.createElement(App, null))
+      /* @__PURE__ */ import_react5.default.createElement(import_react5.StrictMode, null, /* @__PURE__ */ import_react5.default.createElement(App, null))
     );
   });
 })();

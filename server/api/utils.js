@@ -1,3 +1,7 @@
+/**
+ * @param {string} csv
+ * @returns {string[]}
+ */
 export function planetsFromCSV (csv) {
   let lines = csv.split(/\r\n|\n/)
   const planets = []
@@ -5,7 +9,6 @@ export function planetsFromCSV (csv) {
   // Remove the first and list lines
   lines = lines.slice(1, -1)
 
-  let i = 0
   for (const line of lines) {
     const [
       system,
@@ -18,20 +21,19 @@ export function planetsFromCSV (csv) {
       resource2,
       resource3,
       sentinels,
+      isExotic,
       isExtreme,
       isInfested,
       isMoon
-    ] = line.split(',')
+    ] = line.split(/,/)
 
-    const isExotic = biome.search('Exotic') >= 0
-
+    let i = 0
     const newPlanet = {
       name,
       id: i++,
-      descriptor,
-      moon: isMoon === 'TRUE',
+      descriptor: generateDescriptorText(descriptor, isMoon === 'TRUE'),
       biome: biome.replace(' (Exotic)', ''),
-      exotic: isExotic,
+      exotic: isExotic === 'TRUE',
       extreme: isExtreme === 'TRUE',
       infested: isInfested === 'TRUE',
       special,
@@ -40,7 +42,7 @@ export function planetsFromCSV (csv) {
         resource2.replace('Act.', 'Activated').replace('Mag.', 'Magnetized'),
         resource3.replace('Act.', 'Activated').replace('Mag.', 'Magnetized')
       ],
-      sentinels,
+      sentinels: sentinels.toLowerCase(),
       system,
       systemID: parseInt(systemID)
     }
@@ -48,4 +50,23 @@ export function planetsFromCSV (csv) {
   }
 
   return planets
+}
+
+/**
+ *
+ * @param {string} descriptor the planet descriptor
+ * @param {boolean} isMoon is the planetary body a moon
+ * @returns {string} the descriptor string of a planetary body
+ */
+function generateDescriptorText (descriptor, isMoon) {
+  const specialDescriptors = {
+    'of Light': `${isMoon ? 'Moon' : 'Planet'} of Light`,
+    'Planetary Anomaly': 'Planetary Anomaly'
+  }
+
+  if (descriptor in specialDescriptors) {
+    return specialDescriptors[descriptor]
+  }
+
+  return `${descriptor} ${isMoon ? 'Moon' : 'Planet'}`
 }
