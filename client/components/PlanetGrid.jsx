@@ -24,14 +24,12 @@ export default function PlanetGrid () {
     }
   }, [addedPlanet])
 
-  const divPlanets = planets.map((planet) => {
-    return <PlanetCard key={planet.id} planet={planet} />
-  })
-
   return (
-    <div className="row py-2">
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 text-center">
-        {divPlanets}
+    <div className="py-2">
+      <div className="grid gap-4 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {planets.map((planet) => {
+          return <PlanetCard key={planet.id} planet={planet} />
+        })}
       </div>
     </div>
   )

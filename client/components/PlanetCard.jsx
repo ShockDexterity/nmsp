@@ -23,22 +23,20 @@ export default function PlanetCard ({
           sentinels === 'aggressive' ? ' oxygen-bold' : 'oxygen-regular'
         }
       >
-        {sentinels.toUpperCase()}
+        {sentinels === 'low' ? sentinels : sentinels.toUpperCase()}
       </span>
     </p>
   )
 
   return (
-    <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4">
+    <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md">
       <div className="border-y-2 border-t-0 border-black">{name}</div>
       <div className="pt-2">
         <p className={getBiomeBackground(exotic, extreme, infested)}>
           {descriptor} {/* ({biome}) */}
         </p>
       </div>
-      <div className={getSentinelBackground(sentinels)}>
-        {sentinels !== 'low' && sentinelText}
-      </div>
+      <div className={getSentinelBackground(sentinels)}>{sentinelText}</div>
       <div>{system} System</div>
     </div>
   )
@@ -85,7 +83,8 @@ function getBiomeBackground (exotic, extreme, infested) {
 
 function getSentinelBackground (sentinel) {
   if (sentinel === 'low') {
-    return 'bg-green-500'
+    // return 'bg-green-500'
+    return ''
   }
   if (sentinel === 'high') {
     return 'bg-yellow-500'
