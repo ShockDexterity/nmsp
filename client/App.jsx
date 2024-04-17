@@ -10,6 +10,7 @@ import {
   PlanetContext,
   planetReducer
 } from './state/PlanetContext.js'
+import PlanetDetails from './components/PlanetDetails.jsx'
 
 export default function App () {
   const [reducer, dispatch] = useReducer(planetReducer, REDUCER_INIT)
@@ -27,7 +28,7 @@ export default function App () {
             isOpen={reducer.show}
             closeModal={() => dispatch({ type: 'HIDE' })}
           >
-            <p className="text-sm text-gray-500">this is some planet info</p>
+            <PlanetDetails />
           </Modal>
         </DispatchContext.Provider>
       </PlanetContext.Provider>

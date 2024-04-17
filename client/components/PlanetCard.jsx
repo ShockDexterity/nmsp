@@ -11,7 +11,7 @@ export default function PlanetCard ({
     extreme, // boolean
     infested, // boolean
     special, // string
-    resources, // object with 3 strings
+    resources, // array with 3 strings
     sentinels, // string
     system // string
   }
@@ -32,6 +32,21 @@ export default function PlanetCard ({
   )
 
   const handleClick = () => {
+    dispatch({
+      type: 'SET_PLANET',
+      planet: {
+        name,
+        descriptor,
+        biome,
+        exotic,
+        extreme,
+        infested,
+        special,
+        resources,
+        sentinels,
+        system
+      }
+    })
     dispatch({ type: 'DETAILS', title: name })
   }
 

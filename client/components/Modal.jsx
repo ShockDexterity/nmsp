@@ -2,7 +2,8 @@ import React, { Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 
 import { Dialog, Transition } from '@headlessui/react'
-import { PlanetContext } from '../state/PlanetContext'
+
+import { PlanetContext } from '../state/PlanetContext.js'
 
 export default function Modal ({ isOpen, closeModal, children }) {
   const { title } = useContext(PlanetContext)
@@ -23,7 +24,7 @@ export default function Modal ({ isOpen, closeModal, children }) {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="flex min-h-full items-center justify-center p-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -33,17 +34,21 @@ export default function Modal ({ isOpen, closeModal, children }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
                   className="border-b-2 border-black text-center text-lg font-medium leading-6 text-gray-900"
                 >
                   {title}
                 </Dialog.Title>
-                <div className="mt-2">{children}</div>
+                <div className="container mt-2">{children}</div>
 
                 <div className="mt-4">
-                  <button type="button" onClick={closeModal}>
+                  <button
+                    type="button"
+                    className="border-2 border-blue-400"
+                    onClick={closeModal}
+                  >
                     Close
                   </button>
                 </div>

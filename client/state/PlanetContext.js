@@ -55,6 +55,9 @@ export function planetReducer (state, action) {
     case 'RECEIVE':
       return { ...state, planet: action.planet, show: true }
 
+    case 'SET_PLANET':
+      return { ...state, planet: action.planet }
+
     default:
       return state
   }
