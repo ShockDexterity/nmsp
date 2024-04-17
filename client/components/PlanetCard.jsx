@@ -13,7 +13,8 @@ export default function PlanetCard ({
     resources, // object with 3 strings
     sentinels, // string
     system // string
-  }
+  },
+  openModal
 }) {
   const sentinelText = (
     <p>
@@ -28,8 +29,16 @@ export default function PlanetCard ({
     </p>
   )
 
+  const handleClick = () => {
+    console.log('clicked')
+    openModal()
+  }
+
   return (
-    <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md">
+    <div
+      className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md"
+      onClick={handleClick}
+    >
       <div className="border-y-2 border-t-0 border-black">{name}</div>
       <div className="pt-2">
         <p className={getBiomeBackground(exotic, extreme, infested)}>
@@ -59,7 +68,8 @@ PlanetCard.propTypes = {
     }),
     sentinels: PropTypes.string.isRequired,
     system: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  openModal: PropTypes.func.isRequired
 }
 
 function getBiomeBackground (exotic, extreme, infested) {

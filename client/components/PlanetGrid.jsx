@@ -4,7 +4,7 @@ import PlanetCard from './PlanetCard.jsx'
 
 import { getPlanets } from '../fetcher.js'
 
-export default function PlanetGrid () {
+export default function PlanetGrid (props) {
   const [planets, setPlanets] = useState([])
   const [addedPlanet, setAddedPlanet] = useState(false)
 
@@ -26,7 +26,7 @@ export default function PlanetGrid () {
   }, [addedPlanet])
 
   const planetCards = planets.map((planet) => {
-    return <PlanetCard key={planet.id} planet={planet} />
+    return <PlanetCard key={planet.id} planet={planet} {...props} />
   })
 
   return (
