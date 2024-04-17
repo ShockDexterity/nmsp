@@ -37,11 +37,15 @@ export function planetsFromCSV (csv) {
       extreme: isExtreme === 'TRUE',
       infested: isInfested === 'TRUE',
       special,
-      resources: [
-        resource1.replace('Act.', 'Activated').replace('Mag.', 'Magnetized'),
-        resource2.replace('Act.', 'Activated').replace('Mag.', 'Magnetized'),
-        resource3.replace('Act.', 'Activated').replace('Mag.', 'Magnetized')
-      ],
+      resources: {
+        r1: resource1
+          .replace('Act.', 'Activated')
+          .replace('Mag.', 'Magnetized'),
+        r2: resource2
+          .replace('Act.', 'Activated')
+          .replace('Mag.', 'Magnetized'),
+        r3: resource3.replace('Act.', 'Activated').replace('Mag.', 'Magnetized')
+      },
       sentinels: sentinels.toLowerCase(),
       system,
       systemID: parseInt(systemID)

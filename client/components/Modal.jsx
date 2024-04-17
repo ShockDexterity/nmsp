@@ -34,7 +34,7 @@ export default function Modal ({ isOpen, closeModal, children }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-xl overflow-hidden rounded-2xl bg-white p-6 align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
                   className="border-b-2 border-black text-center text-lg font-medium leading-6 text-gray-900"
@@ -46,7 +46,7 @@ export default function Modal ({ isOpen, closeModal, children }) {
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="border-2 border-blue-400"
+                    className="rounded-lg border-2 border-blue-400 bg-blue-400 px-4 py-2 text-white hover:border-blue-500 hover:bg-blue-500"
                     onClick={closeModal}
                   >
                     Close
