@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import { DispatchContext } from '../state/PlanetContext'
 
 export default function PlanetCard ({
   planet: {
@@ -13,9 +14,10 @@ export default function PlanetCard ({
     resources, // object with 3 strings
     sentinels, // string
     system // string
-  },
-  openModal
+  }
 }) {
+  const dispatch = useContext(DispatchContext)
+
   const sentinelText = (
     <p>
       Sentinel Level:{' '}
@@ -30,24 +32,22 @@ export default function PlanetCard ({
   )
 
   const handleClick = () => {
-    console.log('clicked')
-    openModal()
+    dispatch({ type: 'DETAILS', title: name })
   }
 
   return (
-    <div
-      className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md"
-      onClick={handleClick}
-    >
-      <div className="border-y-2 border-t-0 border-black">{name}</div>
-      <div className="pt-2">
-        <p className={getBiomeBackground(exotic, extreme, infested)}>
-          {descriptor} {/* ({biome}) */}
-        </p>
+    <button type="button" onClick={handleClick}>
+      <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md">
+        <div className="border-y-2 border-t-0 border-black">{name}</div>
+        <div className="pt-2">
+          <p className={getBiomeBackground(exotic, extreme, infested)}>
+            {descriptor} {/* ({biome}) */}
+          </p>
+        </div>
+        <div className={getSentinelBackground(sentinels)}>{sentinelText}</div>
+        <div>{system} System</div>
       </div>
-      <div className={getSentinelBackground(sentinels)}>{sentinelText}</div>
-      <div>{system} System</div>
-    </div>
+    </button>
   )
 }
 
@@ -68,8 +68,7 @@ PlanetCard.propTypes = {
     }),
     sentinels: PropTypes.string.isRequired,
     system: PropTypes.string.isRequired
-  }).isRequired,
-  openModal: PropTypes.func.isRequired
+  }).isRequired
 }
 
 function getBiomeBackground (exotic, extreme, infested) {
@@ -93,7 +92,6 @@ function getBiomeBackground (exotic, extreme, infested) {
 
 function getSentinelBackground (sentinel) {
   if (sentinel === 'low') {
-    // return 'bg-green-500'
     return ''
   }
   if (sentinel === 'high') {

@@ -1,20 +1,36 @@
-import React, { useState } from 'react'
+import React, { useReducer } from 'react'
 
 import Header from './components/Header.jsx'
 import PlanetGrid from './components/PlanetGrid.jsx'
 import Modal from './components/Modal.jsx'
 
+import {
+  DispatchContext,
+  REDUCER_INIT,
+  PlanetContext,
+  planetReducer
+} from './state/PlanetContext.js'
+
 export default function App () {
-  const [isOpen, setIsOpen] = useState(false)
+  const [reducer, dispatch] = useReducer(planetReducer, REDUCER_INIT)
 
   return (
     <div className="container mx-auto px-4">
-      <Header
-        title="No Man's Sky Planet Browser"
-        subtitle="Click on a planet card for more information"
-      />
-      <PlanetGrid openModal={() => setIsOpen(true)} />
-      <Modal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
+      <PlanetContext.Provider value={reducer}>
+        <DispatchContext.Provider value={dispatch}>
+          <Header
+            title="No Man's Sky Planet Browser"
+            subtitle="Click on a planet card for more information"
+          />
+          <PlanetGrid />
+          <Modal
+            isOpen={reducer.show}
+            closeModal={() => dispatch({ type: 'HIDE' })}
+          >
+            <p className="text-sm text-gray-500">this is some planet info</p>
+          </Modal>
+        </DispatchContext.Provider>
+      </PlanetContext.Provider>
     </div>
   )
 }

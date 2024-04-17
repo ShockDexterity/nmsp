@@ -3,6 +3,14 @@ import { createContext } from 'react'
 export const PlanetContext = createContext(null)
 export const DispatchContext = createContext(null)
 
+export const REDUCER_INIT = {
+  display: '',
+  title: '',
+  show: false,
+  planet: null,
+  refresh: true
+}
+
 export function planetReducer (state, action) {
   switch (action.type) {
     case 'REFRESH':
@@ -45,7 +53,7 @@ export function planetReducer (state, action) {
       return { ...state, requestedID: action.id }
 
     case 'RECEIVE':
-      return { ...state, game: action.game }
+      return { ...state, planet: action.planet, show: true }
 
     default:
       return state
@@ -57,7 +65,7 @@ export async function getPlanet (id, dispatch) {
     try {
       const response = await fetch(`./planets/${id}`)
       const planet = await response.json()
-      dispatch({ type: 'RECEIVE', game: planet })
+      dispatch({ type: 'RECEIVE', planet })
     }
     catch (error) {
       console.error(error)
@@ -66,10 +74,10 @@ export async function getPlanet (id, dispatch) {
 
   try {
     const planet = await fetchPlanet()
-    dispatch({ type: 'RECEIVE', game: planet })
+    dispatch({ type: 'RECEIVE', planet })
   }
   catch (error) {
     console.error(error)
-    dispatch({ type: 'RECEIVE', game: null })
+    dispatch({ type: 'RECEIVE', planet: null })
   }
 }

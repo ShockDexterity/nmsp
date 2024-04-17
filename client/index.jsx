@@ -4,8 +4,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const root = createRoot(document.querySelector('#root'))
-  root.render(
+  createRoot(document.querySelector('#root')).render(
     <StrictMode>
       <App />
     </StrictMode>
