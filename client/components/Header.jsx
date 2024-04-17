@@ -3,13 +3,11 @@ import PropTypes from 'prop-types'
 
 export default function Header ({ title, subtitle }) {
   return (
-    <div className="row">
-      <div className="border-y-2 border-t-0 text-center py-2">
-        <h1 className="text-2xl oxygen-bold">{title}</h1>
-        <p className="text-sm oxygen-light">
-          <i>{subtitle}</i>
-        </p>
-      </div>
+    <div className="border-y-2 border-t-0 py-2 text-center">
+      <h1 className="oxygen-bold text-2xl">{title}</h1>
+      <p className="oxygen-light text-sm">
+        <i>{subtitle}</i>
+      </p>
     </div>
   )
 }

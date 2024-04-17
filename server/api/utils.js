@@ -8,6 +8,7 @@ export function planetsFromCSV (csv) {
 
   // Remove the first and list lines
   lines = lines.slice(1, -1)
+  let i = 0
 
   for (const line of lines) {
     const [
@@ -27,7 +28,6 @@ export function planetsFromCSV (csv) {
       isMoon
     ] = line.split(/,/)
 
-    let i = 0
     const newPlanet = {
       name,
       id: i++,

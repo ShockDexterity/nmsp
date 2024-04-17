@@ -1,6 +1,7 @@
 import React from 'react'
-import Header from './components/Header'
-import PlanetGrid from './components/PlanetGrid'
+
+import Header from './components/Header.jsx'
+import PlanetGrid from './components/PlanetGrid.jsx'
 
 export default function App () {
   return (
