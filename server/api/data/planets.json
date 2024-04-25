@@ -1,0 +1,665 @@
+[
+  {
+    "name": "Rorennsy VI",
+    "descriptor": "High Radio Source Planet",
+    "biome": "Irradiated",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Gamma Root",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Uranium",
+      "r3": "Sodium"
+    },
+    "sentinels": "low",
+    "system": "Enkyer-Aron",
+    "systemID": 1
+  },
+  {
+    "name": "Rabab D31",
+    "descriptor": "Tectonic Planet",
+    "biome": "Volcanic",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Basalt",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "low",
+    "system": "Enkyer-Aron",
+    "systemID": 1
+  },
+  {
+    "name": "Cuse",
+    "descriptor": "Hexagonal Planet",
+    "biome": "Hexagon",
+    "exotic": true,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Gold",
+      "r3": "Silver"
+    },
+    "sentinels": "low",
+    "system": "Enkyer-Aron",
+    "systemID": 1
+  },
+  {
+    "name": "Lasieth Minor",
+    "descriptor": "Acidic Planet",
+    "biome": "Toxic",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Fungal Mold",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Ammonia",
+      "r3": "Silver"
+    },
+    "sentinels": "low",
+    "system": "Enkyer-Aron",
+    "systemID": 1
+  },
+  {
+    "name": "Eniwa 22/Q4",
+    "descriptor": "Scorched Planet",
+    "biome": "Scorched",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Solanium",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Phosphorus",
+      "r3": "Sodium"
+    },
+    "sentinels": "low",
+    "system": "Enkyer-Aron",
+    "systemID": 1
+  },
+  {
+    "name": "Araxidi Beta",
+    "descriptor": "Paradise Planet",
+    "biome": "Lush",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Star Bulb",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Paraffinium",
+      "r3": "Sodium"
+    },
+    "sentinels": "low",
+    "system": "Enkyer-Aron",
+    "systemID": 1
+  },
+  {
+    "name": "Wottsabur",
+    "descriptor": "High Radio Source Planet",
+    "biome": "Irradiated",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Gamma Root",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Uranium",
+      "r3": "Cobalt"
+    },
+    "sentinels": "low",
+    "system": "Dihingh-Noflut",
+    "systemID": 2
+  },
+  {
+    "name": "Altonib Prime",
+    "descriptor": "Tectonic Planet",
+    "biome": "Volcanic",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Pyrite",
+      "r3": "Sodium"
+    },
+    "sentinels": "low",
+    "system": "Dihingh-Noflut",
+    "systemID": 2
+  },
+  {
+    "name": "Eblos A12",
+    "descriptor": "Caustic Planet",
+    "biome": "Toxic",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Fungal Mold",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Ammonia",
+      "r3": "Cobalt"
+    },
+    "sentinels": "high",
+    "system": "Xifenno",
+    "systemID": 3
+  },
+  {
+    "name": "Ewellin XII",
+    "descriptor": "Spined Planet",
+    "biome": "Bone Spire",
+    "exotic": true,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Gold",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Xifenno",
+    "systemID": 3
+  },
+  {
+    "name": "Ansasca Omega",
+    "descriptor": "Glacial Planet",
+    "biome": "Frozen",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Frost Crystal",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Dioxite",
+      "r3": "Cobalt"
+    },
+    "sentinels": "low",
+    "system": "Xifenno",
+    "systemID": 3
+  },
+  {
+    "name": "Nokong Tau",
+    "descriptor": "Boggy Planet",
+    "biome": "Marsh",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Faecium",
+      "r3": "Cobalt"
+    },
+    "sentinels": "high",
+    "system": "Xifenno",
+    "systemID": 3
+  },
+  {
+    "name": "Ohas 58/J1",
+    "descriptor": "Grassy Planet",
+    "biome": "Lush",
+    "exotic": false,
+    "extreme": true,
+    "infested": false,
+    "special": "Star Bulb",
+    "resources": {
+      "r1": "Activated Copper",
+      "r2": "Paraffinium",
+      "r3": "Salt"
+    },
+    "sentinels": "corrupt",
+    "system": "Ushelk-Ihonj",
+    "systemID": 4
+  },
+  {
+    "name": "Auke",
+    "descriptor": "Tropical Planet",
+    "biome": "Marsh",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Paraffinium",
+      "r3": "Cobalt"
+    },
+    "sentinels": "low",
+    "system": "Ushelk-Ihonj",
+    "systemID": 4
+  },
+  {
+    "name": "Hawkini V",
+    "descriptor": "Mutated Planet",
+    "biome": "Infested Irradiated",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Gamma Root",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Uranium",
+      "r3": "Cobalt"
+    },
+    "sentinels": "low",
+    "system": "Ushelk-Ihonj",
+    "systemID": 4
+  },
+  {
+    "name": "Tefra Y41",
+    "descriptor": "Bountiful Planet",
+    "biome": "Lush",
+    "exotic": false,
+    "extreme": true,
+    "infested": false,
+    "special": "Star Bulb",
+    "resources": {
+      "r1": "Activated Copper",
+      "r2": "Paraffinium",
+      "r3": "Salt"
+    },
+    "sentinels": "low",
+    "system": "Ushelk-Ihonj",
+    "systemID": 4
+  },
+  {
+    "name": "Yarman XVI",
+    "descriptor": "Webbed Planet",
+    "biome": "Contour",
+    "exotic": true,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Gold",
+      "r3": "Cobalt"
+    },
+    "sentinels": "low",
+    "system": "Ushelk-Ihonj",
+    "systemID": 4
+  },
+  {
+    "name": "Ludg",
+    "descriptor": "Erupting Planet",
+    "biome": "Volcanic",
+    "exotic": false,
+    "extreme": true,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Activated Copper",
+      "r2": "Pyrite",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Ushelk-Ihonj",
+    "systemID": 4
+  },
+  {
+    "name": "Dolines Delta",
+    "descriptor": "Torrid Planet",
+    "biome": "Scorched",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Solanium",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Phosphorus",
+      "r3": "Salt"
+    },
+    "sentinels": "low",
+    "system": "Gixincu-Kaspi",
+    "systemID": 5
+  },
+  {
+    "name": "Ladonchom T1",
+    "descriptor": "Poisonous Planet",
+    "biome": "Toxic",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Fungal Mold",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Ammonia",
+      "r3": "Salt"
+    },
+    "sentinels": "high",
+    "system": "Gixincu-Kaspi",
+    "systemID": 5
+  },
+  {
+    "name": "Oran 68/R9",
+    "descriptor": "Ashen Planet",
+    "biome": "Volcanic",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Pyrite",
+      "r3": "Sodium"
+    },
+    "sentinels": "aggressive",
+    "system": "Gixincu-Kaspi",
+    "systemID": 5
+  },
+  {
+    "name": "Luwynudhil",
+    "descriptor": "Barren Moon",
+    "biome": "Barren",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Cactus Flesh",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Pyrite",
+      "r3": "Salt"
+    },
+    "sentinels": "high",
+    "system": "Gixincu-Kaspi",
+    "systemID": 5
+  },
+  {
+    "name": "Kavacha",
+    "descriptor": "Torrid Planet",
+    "biome": "Scorched",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Solanium",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Phosphorus",
+      "r3": "Cobalt"
+    },
+    "sentinels": "high",
+    "system": "Udontx",
+    "systemID": 6
+  },
+  {
+    "name": "Mibo 80/G4",
+    "descriptor": "Abandoned Planet",
+    "biome": "Barren",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Cactus Flesh",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Pyrite",
+      "r3": "Salt"
+    },
+    "sentinels": "low",
+    "system": "Udontx",
+    "systemID": 6
+  },
+  {
+    "name": "Aviev XI",
+    "descriptor": "Temperate Planet",
+    "biome": "Lush",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Star Bulb",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Paraffinium",
+      "r3": "Silver"
+    },
+    "sentinels": "aggressive",
+    "system": "Udontx",
+    "systemID": 6
+  },
+  {
+    "name": "Kinam 63/K5",
+    "descriptor": "Desert Planet",
+    "biome": "Barren",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Cactus Flesh",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Pyrite",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Udontx",
+    "systemID": 6
+  },
+  {
+    "name": "Euth",
+    "descriptor": "Grassy Moon",
+    "biome": "Lush",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Star Bulb",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Paraffinium",
+      "r3": "Silver"
+    },
+    "sentinels": "high",
+    "system": "Udontx",
+    "systemID": 6
+  },
+  {
+    "name": "Ticlebech",
+    "descriptor": "Glacial Moon",
+    "biome": "Frozen",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Frost Crystal",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Dioxite",
+      "r3": "Cobalt"
+    },
+    "sentinels": "aggressive",
+    "system": "Udontx",
+    "systemID": 6
+  },
+  {
+    "name": "Halus M49",
+    "descriptor": "Planet of Light",
+    "biome": "Beams",
+    "exotic": true,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Gold",
+      "r3": "Sodium"
+    },
+    "sentinels": "high",
+    "system": "Isholu",
+    "systemID": 7
+  },
+  {
+    "name": "Ninan 11/E4",
+    "descriptor": "Arid Planet",
+    "biome": "Scorched",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Solanium",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Phosphorus",
+      "r3": "Silver"
+    },
+    "sentinels": "low",
+    "system": "Isholu",
+    "systemID": 7
+  },
+  {
+    "name": "Joycenn IV",
+    "descriptor": "Dusty Planet",
+    "biome": "Barren",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Cactus Flesh",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Pyrite",
+      "r3": "Salt"
+    },
+    "sentinels": "aggressive",
+    "system": "Isholu",
+    "systemID": 7
+  },
+  {
+    "name": "Zopoli Sigma",
+    "descriptor": "Foggy Planet",
+    "biome": "Marsh",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Faecium",
+      "r3": "Cobalt"
+    },
+    "sentinels": "low",
+    "system": "Isholu",
+    "systemID": 7
+  },
+  {
+    "name": "Erditan VII",
+    "descriptor": "Metallic Moon",
+    "biome": "Fract Cube",
+    "exotic": true,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Gold",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Isholu",
+    "systemID": 7
+  },
+  {
+    "name": "Yitchi",
+    "descriptor": "Desolate Planet",
+    "biome": "Barren",
+    "exotic": false,
+    "extreme": true,
+    "infested": false,
+    "special": "Cactus Flesh",
+    "resources": {
+      "r1": "Activated Copper",
+      "r2": "Pyrite",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Enecard",
+    "systemID": 8
+  },
+  {
+    "name": "Tetib VII",
+    "descriptor": "Bountiful Planet",
+    "biome": "Lush",
+    "exotic": false,
+    "extreme": true,
+    "infested": false,
+    "special": "Star Bulb",
+    "resources": {
+      "r1": "Activated Copper",
+      "r2": "Paraffinium",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Enecard",
+    "systemID": 8
+  },
+  {
+    "name": "Aibat 23/D3",
+    "descriptor": "Radioactive Planet",
+    "biome": "Irradiated",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Gamma Root",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Uranium",
+      "r3": "Silver"
+    },
+    "sentinels": "low",
+    "system": "Enecard",
+    "systemID": 8
+  },
+  {
+    "name": "Eridge Myoko",
+    "descriptor": "Airless Planet",
+    "biome": "Dead",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "---",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Rusted Metal",
+      "r3": "Silver"
+    },
+    "sentinels": "high",
+    "system": "Enecard",
+    "systemID": 8
+  },
+  {
+    "name": "Ojoshuan",
+    "descriptor": "Glacial Moon",
+    "biome": "Frozen",
+    "exotic": false,
+    "extreme": false,
+    "infested": false,
+    "special": "Frost Crystal",
+    "resources": {
+      "r1": "Copper",
+      "r2": "Dioxite",
+      "r3": "Magnetized Ferrite"
+    },
+    "sentinels": "high",
+    "system": "Enecard",
+    "systemID": 8
+  },
+  {
+    "name": "Washami Omega",
+    "descriptor": "Charred Moon",
+    "biome": "Scorched",
+    "exotic": false,
+    "extreme": true,
+    "infested": false,
+    "special": "Solanium",
+    "resources": {
+      "r1": "Activated Copper",
+      "r2": "Phosphorus",
+      "r3": "Sodium"
+    },
+    "sentinels": "high",
+    "system": "Enecard",
+    "systemID": 8
+  }
+]
