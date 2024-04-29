@@ -41,12 +41,18 @@ export default function Modal ({ isOpen, closeModal, children }) {
                 >
                   {title}
                 </Dialog.Title>
-                <div className="container mt-2">{children}</div>
+
+                <Dialog.Description
+                  as="div"
+                  className="mt-4 w-full overflow-y-auto"
+                >
+                  {children}
+                </Dialog.Description>
 
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="rounded-lg border-2 border-blue-400 bg-blue-400 px-4 py-2 text-white hover:border-blue-500 hover:bg-blue-500"
+                    className="w-full rounded-lg border-2 border-blue-400 bg-blue-400 px-4 py-2 text-white hover:border-blue-500 hover:bg-blue-500"
                     onClick={closeModal}
                   >
                     Close

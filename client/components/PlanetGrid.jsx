@@ -25,14 +25,17 @@ export default function PlanetGrid (props) {
     }
   }, [addedPlanet])
 
-  const planetCards = planets.map((planet) => {
-    return <PlanetCard key={planet.id} planet={planet} {...props} />
-  })
+  // const planetCards = planets.map((planet) => {
+  //   return <PlanetCard key={planet._id} planet={planet} {...props} />
+  // })
 
   return (
     <div className="py-2">
       <div className="grid gap-4 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {planets.length !== 0 && planetCards}
+        {planets.length !== 0 &&
+          planets.map((planet) => (
+            <PlanetCard key={planet._id} planet={planet} {...props} />
+          ))}
       </div>
     </div>
   )

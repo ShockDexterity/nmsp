@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from 'mongodb'
+import { MongoClient, ObjectId, ServerApiVersion } from 'mongodb'
 
 import dotenv from 'dotenv'
 
@@ -28,4 +28,36 @@ export function connect (dbName) {
     console.error(err)
     return null
   }
+}
+
+export async function retrieveAllPlanets (collection) {
+  const query = {}
+  const projection = {}
+  const sort = { systemID: 1, name: 1 }
+
+  return await collection.find(query).project(projection).sort(sort).toArray()
+}
+
+export async function insertPlanet (collection, planet) {
+  return await collection.insertOne(planet)
+}
+
+export async function updatePlanet (collection, _id, replacementData) {
+  const query = { _id: ObjectId(_id) }
+
+  const dataWithoutId = { ...replacementData }
+  delete dataWithoutId._id
+
+  const replacer = { $set: dataWithoutId }
+
+  const response = await collection.updateOne(query, replacer)
+  return response
+}
+
+export async function deleteGame (collection, _id) {
+  const query = { _id: ObjectId(_id) }
+
+  const data = await collection.findOneAndDelete(query)
+
+  return data
 }

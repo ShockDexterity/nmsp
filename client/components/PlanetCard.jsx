@@ -1,9 +1,15 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { DispatchContext } from '../state/PlanetContext'
 
-export default function PlanetCard ({
-  planet: {
+import { DispatchContext } from '../state/PlanetContext.js'
+
+import { getBiomeBackground, getSentinelBackground } from '../styles.js'
+
+export default function PlanetCard ({ planet }) {
+  const dispatch = useContext(DispatchContext)
+
+  const {
+    _id, // string
     name, // string
     descriptor, // string
     biome, // string
@@ -11,12 +17,10 @@ export default function PlanetCard ({
     extreme, // boolean
     infested, // boolean
     special, // string
-    resources, // array with 3 strings
+    resources, // object with 3 strings
     sentinels, // string
     system // string
-  }
-}) {
-  const dispatch = useContext(DispatchContext)
+  } = planet
 
   const sentinelText = (
     <p>
@@ -34,18 +38,20 @@ export default function PlanetCard ({
   const handleClick = () => {
     dispatch({
       type: 'SET_PLANET',
-      planet: {
-        name,
-        descriptor,
-        biome,
-        exotic,
-        extreme,
-        infested,
-        special,
-        resources,
-        sentinels,
-        system
-      }
+      planet
+      // planet: {
+      //   _id,
+      //   name,
+      //   descriptor,
+      //   biome,
+      //   exotic,
+      //   extreme,
+      //   infested,
+      //   special,
+      //   resources,
+      //   sentinels,
+      //   system
+      // }
     })
     dispatch({ type: 'DETAILS', title: name })
   }
@@ -56,7 +62,7 @@ export default function PlanetCard ({
         <div className="border-y-2 border-t-0 border-black">{name}</div>
         <div className="pt-2">
           <p className={getBiomeBackground(exotic, extreme, infested)}>
-            {descriptor} {/* ({biome}) */}
+            {descriptor}
           </p>
         </div>
         <div className={getSentinelBackground(sentinels)}>{sentinelText}</div>
@@ -69,6 +75,7 @@ export default function PlanetCard ({
 // PropTypes
 PlanetCard.propTypes = {
   planet: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     descriptor: PropTypes.string.isRequired,
     biome: PropTypes.string,
@@ -84,36 +91,4 @@ PlanetCard.propTypes = {
     sentinels: PropTypes.string.isRequired,
     system: PropTypes.string.isRequired
   }).isRequired
-}
-
-function getBiomeBackground (exotic, extreme, infested) {
-  if (exotic && extreme) {
-    return 'bg-gradient-to-r from-cyan-500 to-red-500'
-  }
-  if (extreme && infested) {
-    return 'bg-gradient-to-r from-red-400 to-green-500'
-  }
-  if (exotic) {
-    return 'bg-cyan-500'
-  }
-  if (extreme) {
-    return 'bg-red-400'
-  }
-  if (infested) {
-    return 'bg-green-500'
-  }
-  return 'bg-inherit'
-}
-
-function getSentinelBackground (sentinel) {
-  if (sentinel === 'low') {
-    return ''
-  }
-  if (sentinel === 'high') {
-    return 'bg-yellow-500'
-  }
-  if (sentinel === 'aggressive') {
-    return 'bg-red-500'
-  }
-  return 'bg-purple-400'
 }
