@@ -9,15 +9,15 @@ export default function PlanetCard ({ planet }) {
   const dispatch = useContext(DispatchContext)
 
   const {
-    _id, // string
+    // _id, // string
     name, // string
     descriptor, // string
-    biome, // string
+    // biome, // string
     exotic, // boolean
     extreme, // boolean
     infested, // boolean
-    special, // string
-    resources, // object with 3 strings
+    // special, // string
+    // resources, // object with 3 strings
     sentinels, // string
     system // string
   } = planet
@@ -36,23 +36,7 @@ export default function PlanetCard ({ planet }) {
   )
 
   const handleClick = () => {
-    dispatch({
-      type: 'SET_PLANET',
-      planet
-      // planet: {
-      //   _id,
-      //   name,
-      //   descriptor,
-      //   biome,
-      //   exotic,
-      //   extreme,
-      //   infested,
-      //   special,
-      //   resources,
-      //   sentinels,
-      //   system
-      // }
-    })
+    dispatch({ type: 'SET_PLANET', planet })
     dispatch({ type: 'DETAILS', title: name })
   }
 
@@ -78,11 +62,11 @@ PlanetCard.propTypes = {
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     descriptor: PropTypes.string.isRequired,
-    biome: PropTypes.string,
+    biome: PropTypes.string.isRequired,
     exotic: PropTypes.bool.isRequired,
     extreme: PropTypes.bool.isRequired,
     infested: PropTypes.bool.isRequired,
-    special: PropTypes.string,
+    special: PropTypes.string.isRequired,
     resources: PropTypes.exact({
       r1: PropTypes.string.isRequired,
       r2: PropTypes.string.isRequired,
