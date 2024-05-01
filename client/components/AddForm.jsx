@@ -1,4 +1,5 @@
 import React from 'react'
+import FormTextEntry from './FormTextEntry'
 
 export default function AddForm (props) {
   const handleSubmit = (e) => {
@@ -10,37 +11,15 @@ export default function AddForm (props) {
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Planet name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+            <FormTextEntry label="Planet Name" name="name" cols={2} />
 
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="descriptor"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Planet Descriptor
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="descriptor"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
+            <FormTextEntry
+              label="Planet Descriptor"
+              name="descriptor"
+              cols={2}
+            />
+
+            <FormTextEntry label="System Name" name="system" cols={2} />
 
             <div className="sm:col-span-4">
               <label
