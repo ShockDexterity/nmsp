@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default function FormTextEntry ({ label, name, cols = 3 }) {
-  const columns = `sm:col-span-${cols}`
-
+export default function FormTextEntry ({ label, name }) {
   return (
-    <div className={columns}>
+    <div className="sm:col-span-2">
       <label
         htmlFor={name}
         className="block text-sm font-medium leading-6 text-gray-900"
@@ -25,6 +23,5 @@ export default function FormTextEntry ({ label, name, cols = 3 }) {
 
 FormTextEntry.propTypes = {
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  cols: PropTypes.number
+  name: PropTypes.string.isRequired
 }
