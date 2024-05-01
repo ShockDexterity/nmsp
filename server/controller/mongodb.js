@@ -33,7 +33,7 @@ export function connect (dbName) {
 export async function retrieveAllPlanets (collection) {
   const query = {}
   const projection = {}
-  const sort = { systemID: 1, name: 1 }
+  const sort = { system: 1, name: 1 }
 
   return await collection.find(query).project(projection).sort(sort).toArray()
 }
