@@ -48,7 +48,7 @@ export async function getPlanetByName (collection, name) {
 }
 
 export async function getPlanetByID (collection, _id) {
-  const query = { _id: ObjectId(_id) }
+  const query = { _id: new ObjectId(_id) }
   const projection = {}
 
   const data = await collection.findOne(query, projection)
@@ -61,7 +61,7 @@ export async function insertPlanet (collection, planet) {
 }
 
 export async function updatePlanet (collection, _id, replacementData) {
-  const query = { _id: ObjectId(_id) }
+  const query = { _id: new ObjectId(_id) }
 
   const dataWithoutId = { ...replacementData }
   delete dataWithoutId._id
@@ -72,8 +72,8 @@ export async function updatePlanet (collection, _id, replacementData) {
   return response
 }
 
-export async function deleteGame (collection, _id) {
-  const query = { _id: ObjectId(_id) }
+export async function deletePlanet (collection, _id) {
+  const query = { _id: new ObjectId(_id) }
 
   const data = await collection.findOneAndDelete(query)
 

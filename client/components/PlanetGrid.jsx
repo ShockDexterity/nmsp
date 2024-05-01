@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import PlanetCard from './PlanetCard.jsx'
 
 import { getPlanets } from '../utils/fetcher.js'
+import { DispatchContext, PlanetContext } from '../state/PlanetContext.js'
 
 export default function PlanetGrid (props) {
-  const [planets, setPlanets] = useState([])
-  const [addedPlanet, setAddedPlanet] = useState(false)
+  const [planets, setPlanets] = React.useState([])
 
-  useEffect(() => {
+  const { refresh } = React.useContext(PlanetContext)
+  const dispatch = React.useContext(DispatchContext)
+
+  React.useEffect(() => {
     async function fetchPlanets () {
       try {
         const newPlanets = await getPlanets()
@@ -19,23 +22,21 @@ export default function PlanetGrid (props) {
       }
     }
 
-    fetchPlanets()
-    return () => {
-      setAddedPlanet(false)
+    if (refresh) {
+      fetchPlanets()
+      // console.log('Refreshed')
+      dispatch({ type: 'STOP_REFRESH' })
     }
-  }, [addedPlanet])
+  }, [refresh, dispatch])
 
-  // const planetCards = planets.map((planet) => {
-  //   return <PlanetCard key={planet._id} planet={planet} {...props} />
-  // })
+  const planetCards = planets.map((planet) => (
+    <PlanetCard key={planet._id} planet={planet} {...props} />
+  ))
 
   return (
     <div className="py-2">
       <div className="grid gap-4 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {planets.length !== 0 &&
-          planets.map((planet) => (
-            <PlanetCard key={planet._id} planet={planet} {...props} />
-          ))}
+        {planetCards !== 0 ? planetCards : <p>No planets found</p>}
       </div>
     </div>
   )

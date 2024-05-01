@@ -12,13 +12,10 @@ import {
 } from './state/PlanetContext.js'
 
 import ModalBody from './components/ModalBody.jsx'
+import AddButton from './components/AddButton.jsx'
 
 export default function App () {
   const [reducer, dispatch] = useReducer(planetReducer, REDUCER_INIT)
-
-  const handleClickAdd = () => {
-    dispatch({ type: 'ADD' })
-  }
 
   return (
     <div className="container mx-auto px-4">
@@ -29,15 +26,15 @@ export default function App () {
             subtitle="Click on a planet card for more information"
           />
 
-          <button
-            className="rounded-lg border-2 border-blue-400 bg-blue-400 px-4 py-2 text-white hover:border-blue-500 hover:bg-blue-500"
-            type="button"
-            onClick={handleClickAdd}
-          >
-            Add a planet
-          </button>
+          <AddButton
+            handleAddClick={(event) => {
+              event.preventDefault()
+              dispatch({ type: 'ADD' })
+            }}
+          />
 
           <PlanetGrid />
+
           <Modal
             isOpen={reducer.show}
             closeModal={() => dispatch({ type: 'HIDE' })}

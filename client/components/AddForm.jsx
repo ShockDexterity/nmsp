@@ -1,21 +1,41 @@
 import React from 'react'
-import FormTextEntry from './FormTextEntry'
-import FormSelectEntry from './FormSelectEntry'
-import FormCheckboxEntry from './FormCheckboxEntry'
+import FormTextEntry from './FormTextEntry.jsx'
+import FormSelectEntry from './FormSelectEntry.jsx'
+import FormCheckboxEntry from './FormCheckboxEntry.jsx'
+
+import { DispatchContext } from '../state/PlanetContext.js'
+
+import { addPlanet } from '../utils/fetcher.js'
 
 export default function AddForm (props) {
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const dispatch = React.useContext(DispatchContext)
 
-    const form = e.target
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const form = event.target
     const rawFormData = new FormData(form)
-    const formData = Object.fromEntries(rawFormData)
+    const formData = Object.fromEntries(rawFormData.entries())
+    formData.adding = true
 
     // Send the form data to the server
-    console.log(formData)
+    // console.log(formData)
+    try {
+      const response = await addPlanet(formData)
+      if (response.error) {
+        console.error('error', response.error)
+      }
+      else {
+        window.alert('Planet added successfully')
+        dispatch({ type: 'REFRESH' })
+      }
 
-    // Clear the form
-    form.reset()
+      // Clear the form
+      form.reset()
+    }
+    catch (error) {
+      console.error(error)
+    }
   }
 
   return (

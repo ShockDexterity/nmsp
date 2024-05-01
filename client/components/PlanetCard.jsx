@@ -5,6 +5,7 @@ import { DispatchContext } from '../state/PlanetContext.js'
 
 import { getBiomeBackground, getSentinelBackground } from '../utils/styles.js'
 import { generateDescriptorText } from '../utils/texts.js'
+import { deletePlanet } from '../utils/fetcher.js'
 
 export default function PlanetCard ({ planet }) {
   const dispatch = useContext(DispatchContext)
@@ -37,20 +38,35 @@ export default function PlanetCard ({ planet }) {
     </p>
   )
 
-  const handleDetailsClick = () => {
+  const handleDetailsClick = (event) => {
+    event.preventDefault()
     dispatch({ type: 'SET_PLANET', planet })
     dispatch({ type: 'DETAILS', title: name })
   }
 
-  const handleEditClick = () => {
+  const handleEditClick = (event) => {
+    event.preventDefault()
     dispatch({ type: 'SET_PLANET', planet })
     dispatch({ type: 'EDIT', title: `Edit ${name}` })
   }
 
-  // const handleDeleteClick = () => {
-  //   dispatch({ type: 'SET_PLANET', planet })
-  //   dispatch({ type: 'DETAILS', title: name })
-  // }
+  const handleDeleteClick = async (event) => {
+    event.preventDefault()
+    if (window.confirm(`Are you sure you want to delete ${name}?`)) {
+      try {
+        const response = await deletePlanet(planet._id)
+        if (response.error) {
+          window.alert(response.error)
+          return
+        }
+        dispatch({ type: 'REFRESH' })
+      }
+      catch (error) {
+        window.alert(`error deleting ${name}`)
+        console.error(error)
+      }
+    }
+  }
 
   return (
     <div>
@@ -73,7 +89,10 @@ export default function PlanetCard ({ planet }) {
       >
         Edit
       </button>
-      <button className="w-1/3 rounded-lg border-2 border-red-400 bg-red-400 py-2 text-white hover:border-red-500 hover:bg-red-500">
+      <button
+        onClick={handleDeleteClick}
+        className="w-1/3 rounded-lg border-2 border-red-500 bg-red-500 py-2 text-white hover:border-red-600 hover:bg-red-600"
+      >
         Delete
       </button>
     </div>

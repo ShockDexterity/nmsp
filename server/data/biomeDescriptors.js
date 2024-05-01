@@ -35,6 +35,7 @@ export const descriptors = {
   Dead: 'Dead',
   'Decaying Nuclear': 'Irradiated',
   Desert: 'Barren',
+  Desolate: 'Barren / Dead',
   Doomed: 'Glitch',
   Dusty: 'Barren',
   Empty: 'Dead',

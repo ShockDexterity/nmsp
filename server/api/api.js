@@ -1,13 +1,8 @@
 import Express, { Router } from 'express'
 
-// import fs from 'fs'
-// import { biomeDescriptorsFromCSV } from './utils.js'
-// biomeDescriptorsFromCSV(
-//   fs.readFileSync('./server/data/biomeDescriptors.csv', 'utf8')
-// )
-
 import * as DB from '../controller/mongodb.js'
 import { validatePlanet } from './planetValidators.js'
+
 const dbHandle = DB.connect('NMSP')
 const planetsCollection = dbHandle.collection('planets')
 
@@ -58,23 +53,27 @@ router.put('/', async (req, res) => {
 })
 
 router.put('/edit', async (req, res) => {
+  console.log('validating')
   validatePlanet(req.body, async (err, validPlanet) => {
     if (err) {
+      console.log('error')
       res.status(err.status).json({ error: true, message: err.message })
       return
     }
 
-    const shouldExist = await DB.getPlanetByName(
+    console.log('no error')
+
+    const planetToEdit = await DB.getPlanetByID(
       planetsCollection,
-      validPlanet.name
+      validPlanet._id
     )
-    if (!shouldExist) {
+    if (!planetToEdit) {
       res.status(400).json({ error: true, message: 'Planet does not exist' })
       return
     }
 
     try {
-      await DB.updatePlanet(planetsCollection, shouldExist._id, validPlanet)
+      await DB.updatePlanet(planetsCollection, planetToEdit._id, validPlanet)
       res
         .status(200)
         .json({ success: true, message: `${validPlanet.name} updated` })
@@ -84,4 +83,25 @@ router.put('/edit', async (req, res) => {
     }
   })
 })
+
+router.delete('/:id', async (req, res) => {
+  const _id = req.params.id
+  if (!_id) {
+    res.status(400).json({ error: true, message: 'No ID provided' })
+    return
+  }
+
+  const deletedPlanet = await DB.deletePlanet(planetsCollection, _id)
+  if (!deletedPlanet) {
+    res.status(400).json({ error: true, message: 'Unable to delete planet' })
+    return
+  }
+
+  res.status(200).json({
+    success: true,
+    name: deletedPlanet.name,
+    message: `"${deletedPlanet.name}" deleted`
+  })
+})
+
 export default router

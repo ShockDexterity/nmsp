@@ -12,12 +12,12 @@ export async function addPlanet (planet) {
   }
 
   const response = await fetch('./planets', {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(planet)
+    body: planet
   })
   const json = await response.json()
   return json
@@ -29,13 +29,13 @@ export async function updatePlanet (planet) {
     planet = JSON.stringify(planet)
   }
 
-  const response = await fetch('./planets', {
+  const response = await fetch('./planets/edit', {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(planet)
+    body: planet
   })
   const json = await response.json()
   return json

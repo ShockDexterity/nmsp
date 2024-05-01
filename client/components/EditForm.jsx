@@ -4,20 +4,40 @@ import FormTextEntry from './FormTextEntry.jsx'
 import FormSelectEntry from './FormSelectEntry.jsx'
 import FormCheckboxEntry from './FormCheckboxEntry.jsx'
 
-import { PlanetContext } from '../state/PlanetContext.js'
+import { DispatchContext, PlanetContext } from '../state/PlanetContext.js'
+import { updatePlanet } from '../utils/fetcher.js'
 
 export default function EditForm (props) {
   const { planet } = React.useContext(PlanetContext)
+  const dispatch = React.useContext(DispatchContext)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
 
-    const form = e.target
+    const form = event.target
     const rawFormData = new FormData(form)
-    const formData = Object.fromEntries(rawFormData)
+    const formData = Object.fromEntries(rawFormData.entries())
+    formData._id = planet._id
 
     // Send the form data to the server
-    console.log(formData)
+    // console.log(formData)
+    try {
+      const response = await updatePlanet(formData)
+      if (response.error) {
+        window.alert(response.message)
+        console.error(response.error)
+      }
+      else {
+        window.alert('Planet updated successfully')
+        dispatch({ type: 'REFRESH' })
+      }
+
+      // Clear the form
+      form.reset()
+    }
+    catch (error) {
+      console.error(error)
+    }
   }
 
   return (
