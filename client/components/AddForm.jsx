@@ -30,7 +30,11 @@ export default function AddForm (props) {
           <FormTextEntry label="Resource 2" name="r2" />
           <FormTextEntry label="Resource 3" name="r3" />
 
-          <FormSelectEntry label="Sentinels" name="sentinels">
+          <FormSelectEntry
+            label="Sentinels"
+            name="sentinels"
+            defaultSelected="low"
+          >
             <option value="low">Low</option>
             <option value="high">High</option>
             <option value="aggressive">Aggressive</option>

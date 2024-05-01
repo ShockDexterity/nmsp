@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function FormCheckboxEntry ({ label, name }) {
+  const [checked, setChecked] = React.useState(false)
+
   return (
     <div className="relative flex gap-x-3">
       <div className="flex h-6 items-center">
@@ -9,6 +11,8 @@ export default function FormCheckboxEntry ({ label, name }) {
           name={name}
           type="checkbox"
           className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+          checked={checked}
+          onChange={(e) => setChecked(e.target.checked)}
         />
       </div>
       <div className="text-sm leading-6">
