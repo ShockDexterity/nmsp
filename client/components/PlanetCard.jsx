@@ -36,14 +36,24 @@ export default function PlanetCard ({ planet }) {
     </p>
   )
 
-  const handleClick = () => {
+  const handleDetailsClick = () => {
     dispatch({ type: 'SET_PLANET', planet })
     dispatch({ type: 'DETAILS', title: name })
   }
 
+  const handleEditClick = () => {
+    dispatch({ type: 'SET_PLANET', planet })
+    dispatch({ type: 'EDIT', title: `Edit ${name}` })
+  }
+
+  // const handleDeleteClick = () => {
+  //   dispatch({ type: 'SET_PLANET', planet })
+  //   dispatch({ type: 'DETAILS', title: name })
+  // }
+
   return (
     <div>
-      <button type="button" onClick={handleClick} className="w-full">
+      <button type="button" onClick={handleDetailsClick} className="w-full">
         <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md">
           <div className="border-y-2 border-t-0 border-black">{name}</div>
           <div className="pt-2">
@@ -56,7 +66,10 @@ export default function PlanetCard ({ planet }) {
         </div>
       </button>
       <br />
-      <button className="w-1/3 rounded-lg border-2 border-slate-400 bg-slate-400 py-2 text-white hover:border-slate-500 hover:bg-slate-500">
+      <button
+        onClick={handleEditClick}
+        className="w-1/3 rounded-lg border-2 border-slate-400 bg-slate-400 py-2 text-white hover:border-slate-500 hover:bg-slate-500"
+      >
         Edit
       </button>
       <button className="w-1/3 rounded-lg border-2 border-red-400 bg-red-400 py-2 text-white hover:border-red-500 hover:bg-red-500">

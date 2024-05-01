@@ -1,10 +1,14 @@
 import React from 'react'
 
-import FormTextEntry from './FormTextEntry'
-import FormSelectEntry from './FormSelectEntry'
-import FormCheckboxEntry from './FormCheckboxEntry'
+import FormTextEntry from './FormTextEntry.jsx'
+import FormSelectEntry from './FormSelectEntry.jsx'
+import FormCheckboxEntry from './FormCheckboxEntry.jsx'
+
+import { PlanetContext } from '../state/PlanetContext.js'
 
 export default function EditForm (props) {
+  const { planet } = React.useContext(PlanetContext)
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -14,27 +18,61 @@ export default function EditForm (props) {
 
     // Send the form data to the server
     console.log(formData)
-
-    // Clear the form
-    form.reset()
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="space-y-12 pb-12">
         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <FormTextEntry label="Planet Name" name="name" />
-          <FormTextEntry label="Planet Descriptor" name="descriptor" />
-          <FormTextEntry label="System Name" name="system" />
+          <FormTextEntry
+            label="Planet Name"
+            name="name"
+            defaultText={planet?.name ?? ''}
+          />
+          <FormTextEntry
+            label="Planet Descriptor"
+            name="descriptor"
+            defaultText={planet?.descriptor ?? ''}
+          />
+          <FormTextEntry
+            label="System Name"
+            name="system"
+            defaultText={planet?.system ?? ''}
+          />
 
-          <FormTextEntry label="Resource 1" name="r1" />
-          <FormTextEntry label="Resource 2" name="r2" />
-          <FormTextEntry label="Resource 3" name="r3" />
+          <FormTextEntry
+            label="Resource 1"
+            name="r1"
+            defaultText={planet?.resources?.r1 ?? ''}
+          />
+          <FormTextEntry
+            label="Resource 2"
+            name="r2"
+            defaultText={planet?.resources?.r2 ?? ''}
+          />
+          <FormTextEntry
+            label="Resource 3"
+            name="r3"
+            defaultText={planet?.resources?.r3 ?? ''}
+          />
+
+          <FormTextEntry
+            label="Planet Biome"
+            name="biome"
+            defaultText={planet?.biome ?? ''}
+          />
+          <FormTextEntry
+            label="Planet Special"
+            name="special"
+            defaultText={planet?.special ?? ''}
+          />
+
+          <br />
 
           <FormSelectEntry
             label="Sentinels"
             name="sentinels"
-            defaultSelected="low"
+            defaultSelected={planet?.sentinels ?? 'low'}
           >
             <option value="low">Low</option>
             <option value="high">High</option>
@@ -44,10 +82,26 @@ export default function EditForm (props) {
 
           <br />
 
-          <FormCheckboxEntry label="Exotic" name="exotic" />
-          <FormCheckboxEntry label="Extreme" name="extreme" />
-          <FormCheckboxEntry label="Infested" name="infested" />
-          <FormCheckboxEntry label="Moon" name="moon" />
+          <FormCheckboxEntry
+            label="Exotic"
+            name="exotic"
+            defaultChecked={planet?.exotic ?? false}
+          />
+          <FormCheckboxEntry
+            label="Extreme"
+            name="extreme"
+            defaultChecked={planet?.extreme ?? false}
+          />
+          <FormCheckboxEntry
+            label="Infested"
+            name="infested"
+            defaultChecked={planet?.infested ?? false}
+          />
+          <FormCheckboxEntry
+            label="Moon"
+            name="moon"
+            defaultChecked={planet?.moon ?? false}
+          />
 
           <br />
 

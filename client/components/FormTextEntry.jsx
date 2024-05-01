@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default function FormTextEntry ({ label, name }) {
-  const [value, setValue] = React.useState('')
+export default function FormTextEntry ({ label, name, defaultText = '' }) {
+  const [value, setValue] = React.useState(defaultText)
 
   return (
     <div className="sm:col-span-2">
@@ -28,5 +28,6 @@ export default function FormTextEntry ({ label, name }) {
 
 FormTextEntry.propTypes = {
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  defaultText: PropTypes.string
 }

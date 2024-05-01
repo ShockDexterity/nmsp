@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default function FormCheckboxEntry ({ label, name }) {
-  const [checked, setChecked] = React.useState(false)
+export default function FormCheckboxEntry ({
+  label,
+  name,
+  defaultChecked = false
+}) {
+  const [isChecked, setIsChecked] = React.useState(defaultChecked)
 
   return (
     <div className="relative flex gap-x-3">
@@ -11,8 +15,8 @@ export default function FormCheckboxEntry ({ label, name }) {
           name={name}
           type="checkbox"
           className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e.target.checked)}
         />
       </div>
       <div className="text-sm leading-6">
@@ -26,5 +30,6 @@ export default function FormCheckboxEntry ({ label, name }) {
 
 FormCheckboxEntry.propTypes = {
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  defaultChecked: PropTypes.bool
 }
