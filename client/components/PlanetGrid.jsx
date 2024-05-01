@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import PlanetCard from './PlanetCard.jsx'
 
-import { getPlanets } from '../fetcher.js'
+import { getPlanets } from '../utils/fetcher.js'
 
 export default function PlanetGrid (props) {
   const [planets, setPlanets] = useState([])

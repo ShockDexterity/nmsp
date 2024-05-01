@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import { DispatchContext } from '../state/PlanetContext.js'
 
-import { getBiomeBackground, getSentinelBackground } from '../styles.js'
+import { getBiomeBackground, getSentinelBackground } from '../utils/styles.js'
+import { generateDescriptorText } from '../utils/texts.js'
 
 export default function PlanetCard ({ planet }) {
   const dispatch = useContext(DispatchContext)
@@ -99,23 +100,4 @@ PlanetCard.propTypes = {
     sentinels: PropTypes.string.isRequired,
     system: PropTypes.string.isRequired
   }).isRequired
-}
-
-/**
- *
- * @param {string} descriptor the planet descriptor
- * @param {boolean} isMoon is the planetary body a moon
- * @returns {string} the descriptor string of a planetary body
- */
-function generateDescriptorText (descriptor, isMoon) {
-  const specialDescriptors = {
-    'of Light': `${isMoon ? 'Moon' : 'Planet'} of Light`,
-    'Planetary Anomaly': 'Planetary Anomaly'
-  }
-
-  if (descriptor in specialDescriptors) {
-    return specialDescriptors[descriptor]
-  }
-
-  return `${descriptor} ${isMoon ? 'Moon' : 'Planet'}`
 }

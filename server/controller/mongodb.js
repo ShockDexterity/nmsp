@@ -38,6 +38,24 @@ export async function retrieveAllPlanets (collection) {
   return await collection.find(query).project(projection).sort(sort).toArray()
 }
 
+export async function getPlanetByName (collection, name) {
+  const query = { name }
+  const projection = {}
+
+  const data = await collection.findOne(query, projection)
+
+  return data
+}
+
+export async function getPlanetByID (collection, _id) {
+  const query = { _id: ObjectId(_id) }
+  const projection = {}
+
+  const data = await collection.findOne(query, projection)
+
+  return data
+}
+
 export async function insertPlanet (collection, planet) {
   return await collection.insertOne(planet)
 }

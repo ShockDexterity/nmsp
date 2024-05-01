@@ -16,6 +16,7 @@ export function planetsFromCSV (csv) {
   for (const line of lines) {
     const [
       system,
+      // eslint-disable-next-line no-unused-vars
       systemID,
       name,
       descriptor,
@@ -62,4 +63,23 @@ export function planetsFromCSV (csv) {
   )
 
   return planets
+}
+
+export function biomeDescriptorsFromCSV (csv) {
+  let lines = csv.split(/\r\n|\n/)
+  const biomes = {}
+
+  // Remove the first and list lines
+  lines = lines.slice(1, -1)
+
+  for (const line of lines) {
+    const [descriptor, biome] = line.split(/,/)
+
+    biomes[descriptor] = biome
+  }
+
+  fs.writeFileSync(
+    './server/data/biomeDescriptors.json',
+    JSON.stringify(biomes, null, 2)
+  )
 }

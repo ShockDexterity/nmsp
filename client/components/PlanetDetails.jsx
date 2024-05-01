@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 
 import { PlanetContext } from '../state/PlanetContext.js'
 
-import { getBiomeBackground, getSentinelBackground } from '../styles.js'
+import { getBiomeBackground, getSentinelBackground } from '../utils/styles.js'
+import { generateDescriptorText } from '../utils/texts.js'
 
 export default function PlanetDetails (props) {
   const { planet } = useContext(PlanetContext)
@@ -55,23 +56,4 @@ export default function PlanetDetails (props) {
       <div className={border}>{system} System</div>
     </div>
   )
-}
-
-/**
- *
- * @param {string} descriptor the planet descriptor
- * @param {boolean} isMoon is the planetary body a moon
- * @returns {string} the descriptor string of a planetary body
- */
-function generateDescriptorText (descriptor, isMoon) {
-  const specialDescriptors = {
-    'of Light': isMoon ? 'Moon of Light' : 'Planet of Light',
-    'Planetary Anomaly': 'Planetary Anomaly'
-  }
-
-  if (descriptor in specialDescriptors) {
-    return specialDescriptors[descriptor]
-  }
-
-  return `${descriptor} ${isMoon ? 'Moon' : 'Planet'}`
 }
