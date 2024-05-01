@@ -1,11 +1,11 @@
-import { descriptors } from '../data/biomeDescriptors.js'
+import { descriptors } from '../data/descriptors.js'
 
-export function validatePlanet (planet, callback) {
-  if (!planet) {
+export function validatePlanet (submission, callback) {
+  if (!submission) {
     callback({ status: 400, message: 'No planet provided' })
     return
   }
-  if (typeof planet !== 'object' || Array.isArray(planet)) {
+  if (typeof submission !== 'object' || Array.isArray(submission)) {
     callback({ status: 400, message: 'Invalid planet' })
     return
   }
@@ -13,41 +13,81 @@ export function validatePlanet (planet, callback) {
   const cleanedPlanet = {}
   const messages = []
 
-  if (!planet._id && !planet.adding) {
-    callback({ status: 400, message: 'No ID provided' })
-    return
+  if (!submission.adding) {
+    if (!submission._id) {
+      callback({ status: 400, message: 'No ID provided' })
+      return
+    }
+    else {
+      cleanedPlanet._id = submission._id
+    }
   }
-  cleanedPlanet._id = planet._id
 
-  if (!planet.name) {
+  if (!submission.name) {
     callback({ status: 400, message: 'No name provided' })
     return
   }
-  cleanedPlanet.name = planet.name
+  cleanedPlanet.name = submission.name
 
-  if (!planet.system) {
+  if (!submission.system) {
     callback({ status: 400, message: 'No system provided' })
     return
   }
-  cleanedPlanet.system = planet.system
+  cleanedPlanet.system = submission.system
 
-  if (!planet.descriptor) {
+  if (!submission.descriptor) {
     callback({ status: 400, message: 'No descriptor provided' })
     return
   }
-  cleanedPlanet.descriptor = planet.descriptor
+  cleanedPlanet.descriptor = submission.descriptor
 
-  if (!descriptors.includes(planet.descriptor)) {
+  if (!descriptors[submission.descriptor]) {
     callback({ status: 400, message: 'Invalid descriptor' })
     return
   }
-  if (
-    cleanedPlanet.descriptor === 'Tropical' ||
-    cleanedPlanet.descriptor === 'Desolate'
-  ) {
-    messages.push('')
+
+  if (!submission.adding) {
+    cleanedPlanet.descriptor = submission.descriptor
+    cleanedPlanet.biome = submission.biome
   }
-  cleanedPlanet.biome = descriptors[planet.descriptor]
+  else {
+    if (cleanedPlanet.descriptor === 'Tropical') {
+      messages.push('Could not determine biome from descriptor.')
+      messages.push('Use the edit feature to correct it.')
+      messages.push('Also check the Special Resource')
+      cleanedPlanet.biome = descriptors[submission.descriptor]
+    }
+    else if (cleanedPlanet.descriptor === 'Desolate') {
+      if (submission.special) {
+        cleanedPlanet.biome = 'Desolate'
+      }
+      else {
+        cleanedPlanet.biome = 'Dead'
+      }
+    }
+    else {
+      cleanedPlanet.biome = descriptors[submission.descriptor]
+    }
+  }
+
+  cleanedPlanet.special = submission.special ?? '---'
+
+  cleanedPlanet.resources = {
+    r1: submission.r1,
+    r2: submission.r2,
+    r3: submission.r3
+  }
+
+  if (!submission.sentinels) {
+    callback({ status: 400, message: 'No sentinel level provided' })
+    return
+  }
+  cleanedPlanet.sentinels = submission.sentinels
+
+  cleanedPlanet.moon = !!submission.moon
+  cleanedPlanet.exotic = !!submission.exotic
+  cleanedPlanet.extreme = !!submission.extreme
+  cleanedPlanet.infested = !!submission.infested
 
   callback(null, cleanedPlanet, messages)
 }

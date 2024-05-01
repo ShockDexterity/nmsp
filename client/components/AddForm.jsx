@@ -27,6 +27,9 @@ export default function AddForm (props) {
       }
       else {
         window.alert('Planet added successfully')
+        if (response.additional.length > 0) {
+          window.alert(response.additional.join('\n'))
+        }
         dispatch({ type: 'REFRESH' })
       }
 
@@ -49,6 +52,8 @@ export default function AddForm (props) {
           <FormTextEntry label="Resource 1" name="r1" />
           <FormTextEntry label="Resource 2" name="r2" />
           <FormTextEntry label="Resource 3" name="r3" />
+
+          <FormTextEntry label="Special Resource" name="special" />
 
           <FormSelectEntry
             label="Sentinels"

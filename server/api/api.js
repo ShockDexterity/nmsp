@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 })
 
 router.put('/', async (req, res) => {
-  validatePlanet(req.body, async (err, validPlanet) => {
+  validatePlanet(req.body, async (err, validPlanet, messages) => {
     if (err) {
       res.status(err.status).json({ error: true, message: err.message })
       return
@@ -44,7 +44,11 @@ router.put('/', async (req, res) => {
       await DB.insertPlanet(planetsCollection, validPlanet)
       res
         .status(200)
-        .json({ success: true, message: `${validPlanet.name} added` })
+        .json({
+          success: true,
+          message: `${validPlanet.name} added`,
+          additional: messages
+        })
     }
     catch (err) {
       res.status(500).json({ error: true, message: 'Unable to add planet' })
@@ -54,7 +58,7 @@ router.put('/', async (req, res) => {
 
 router.put('/edit', async (req, res) => {
   console.log('validating')
-  validatePlanet(req.body, async (err, validPlanet) => {
+  validatePlanet(req.body, async (err, validPlanet, messages) => {
     if (err) {
       console.log('error')
       res.status(err.status).json({ error: true, message: err.message })
@@ -74,9 +78,11 @@ router.put('/edit', async (req, res) => {
 
     try {
       await DB.updatePlanet(planetsCollection, planetToEdit._id, validPlanet)
-      res
-        .status(200)
-        .json({ success: true, message: `${validPlanet.name} updated` })
+      res.status(200).json({
+        success: true,
+        message: `${validPlanet.name} updated`,
+        additional: messages
+      })
     }
     catch (err) {
       res.status(500).json({ error: true, message: 'Unable to update planet' })

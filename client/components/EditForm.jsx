@@ -29,6 +29,9 @@ export default function EditForm (props) {
       }
       else {
         window.alert('Planet updated successfully')
+        if (response.additional.length > 0) {
+          window.alert(response.additional.join('\n'))
+        }
         dispatch({ type: 'REFRESH' })
       }
 
@@ -82,12 +85,10 @@ export default function EditForm (props) {
             defaultText={planet?.biome ?? ''}
           />
           <FormTextEntry
-            label="Planet Special"
+            label="Special Resource"
             name="special"
             defaultText={planet?.special ?? ''}
           />
-
-          <br />
 
           <FormSelectEntry
             label="Sentinels"
@@ -99,8 +100,6 @@ export default function EditForm (props) {
             <option value="aggressive">Aggressive</option>
             <option value="corrupt">Corrupt</option>
           </FormSelectEntry>
-
-          <br />
 
           <FormCheckboxEntry
             label="Exotic"
@@ -122,8 +121,6 @@ export default function EditForm (props) {
             name="moon"
             defaultChecked={planet?.moon ?? false}
           />
-
-          <br />
 
           <button
             type="submit"
