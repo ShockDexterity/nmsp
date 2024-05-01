@@ -42,18 +42,27 @@ export default function PlanetCard ({ planet }) {
   }
 
   return (
-    <button type="button" onClick={handleClick}>
-      <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md">
-        <div className="border-y-2 border-t-0 border-black">{name}</div>
-        <div className="pt-2">
-          <p className={getBiomeBackground(exotic, extreme, infested)}>
-            {generateDescriptorText(descriptor, moon)}
-          </p>
+    <div>
+      <button type="button" onClick={handleClick} className="w-full">
+        <div className="oxygen-regular rounded-lg border-2 border-gray-500 bg-white p-4 shadow hover:shadow-md">
+          <div className="border-y-2 border-t-0 border-black">{name}</div>
+          <div className="pt-2">
+            <p className={getBiomeBackground(exotic, extreme, infested)}>
+              {generateDescriptorText(descriptor, moon)}
+            </p>
+          </div>
+          <div className={getSentinelBackground(sentinels)}>{sentinelText}</div>
+          <div>{system} System</div>
         </div>
-        <div className={getSentinelBackground(sentinels)}>{sentinelText}</div>
-        <div>{system} System</div>
-      </div>
-    </button>
+      </button>
+      <br />
+      <button className="w-1/3 rounded-lg border-2 border-slate-400 bg-slate-400 py-2 text-white hover:border-slate-500 hover:bg-slate-500">
+        Edit
+      </button>
+      <button className="w-1/3 rounded-lg border-2 border-red-400 bg-red-400 py-2 text-white hover:border-red-500 hover:bg-red-500">
+        Delete
+      </button>
+    </div>
   )
 }
 
