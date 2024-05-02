@@ -48,7 +48,31 @@ export function validatePlanet (submission, callback) {
 
   if (!submission.adding) {
     cleanedPlanet.descriptor = submission.descriptor
-    cleanedPlanet.biome = submission.biome
+    if (submission.biome !== descriptors[submission.descriptor]) {
+      if (
+        submission.descriptor === 'Tropical' &&
+        (submission.biome === 'Marsh' || submission.biome === 'Lush')
+      ) {
+        cleanedPlanet.biome = submission.biome
+        messages.push('Please double check your biome.')
+      }
+      else if (
+        submission.descriptor === 'Desolate' &&
+        (submission.biome === 'Dead' || submission.biome === 'Barren')
+      ) {
+        cleanedPlanet.biome = submission.biome
+        messages.push('Please double check your biome.')
+      }
+      else {
+        messages.push(
+          'Descriptor and biome do not match, so biome was set to match the descriptor.'
+        )
+        cleanedPlanet.biome = descriptors[submission.descriptor]
+      }
+    }
+    else {
+      cleanedPlanet.biome = submission.biome
+    }
   }
   else {
     if (cleanedPlanet.descriptor === 'Tropical') {

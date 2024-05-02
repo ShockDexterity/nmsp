@@ -42,13 +42,11 @@ router.put('/', async (req, res) => {
 
     try {
       await DB.insertPlanet(planetsCollection, validPlanet)
-      res
-        .status(200)
-        .json({
-          success: true,
-          message: `${validPlanet.name} added`,
-          additional: messages
-        })
+      res.status(200).json({
+        success: true,
+        message: `${validPlanet.name} added`,
+        additional: messages
+      })
     }
     catch (err) {
       res.status(500).json({ error: true, message: 'Unable to add planet' })
@@ -65,7 +63,11 @@ router.put('/edit', async (req, res) => {
       return
     }
 
-    console.log('no error')
+    Object.keys(validPlanet).forEach((key) => {
+      if (validPlanet[key] === null || validPlanet[key] === undefined) {
+        delete validPlanet[key]
+      }
+    })
 
     const planetToEdit = await DB.getPlanetByID(
       planetsCollection,

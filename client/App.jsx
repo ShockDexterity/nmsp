@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 
 import Header from './components/Header.jsx'
 import PlanetGrid from './components/PlanetGrid.jsx'
@@ -13,9 +13,12 @@ import {
 
 import ModalBody from './components/ModalBody.jsx'
 import AddButton from './components/AddButton.jsx'
+import PlanetSorter from './components/PlanetSorter.jsx'
 
 export default function App () {
-  const [reducer, dispatch] = useReducer(planetReducer, REDUCER_INIT)
+  const [reducer, dispatch] = React.useReducer(planetReducer, REDUCER_INIT)
+
+  const [sortingValue, setSortingValue] = React.useState('')
 
   return (
     <div className="container mx-auto px-4">
@@ -33,7 +36,12 @@ export default function App () {
             }}
           />
 
-          <PlanetGrid />
+          <PlanetSorter
+            sortingValue={sortingValue}
+            setSortingValue={setSortingValue}
+          />
+
+          <PlanetGrid sortingValue={sortingValue} />
 
           <Modal
             isOpen={reducer.show}

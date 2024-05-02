@@ -50,7 +50,7 @@ export default function PlanetDetails (props) {
       <div className={border}>Special Resource: {special}</div>
       <div className={border}>
         <p>
-          Resources: {resources.r1} {resources.r2} {resources.r3}
+          Resources: {resources.r1} | {resources.r2} | {resources.r3}
         </p>
       </div>
       <div className={border}>{system} System</div>
