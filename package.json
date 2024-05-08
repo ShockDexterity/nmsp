@@ -1,6 +1,6 @@
 {
   "name": "nmsp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "CS404 Research Project",
   "main": "client/index.jsx",
   "type": "module",
